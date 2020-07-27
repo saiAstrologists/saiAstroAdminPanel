@@ -1,1 +1,64 @@
-<p>login works!</p>
+<div class="login-container">
+    <div class="login-img-sec"></div>
+    <div class="container">
+       <div class="row justify-content-center align-items-center">
+        <div class="col-5">
+            <form [formGroup]="adminLogin" class="text-center">
+                <mat-card class="pt-5 pb-5">
+                    <mat-card-title class="text-center">{{viewForgetPswdSec ? 'Forgot Password': 'Login'}}</mat-card-title>
+                    <!-- login section start -->
+                    <div *ngIf="!viewForgetPswdSec">
+                        <div class="mt-5">
+                            <mat-form-field >
+                                <mat-label>Username</mat-label>
+                                <input matInput placeholder="" type="text" formControlName="username">
+                                <mat-icon matPrefix class="mr-2">person</mat-icon>
+                                <!-- <mat-hint>Hint</mat-hint> -->
+                              </mat-form-field>
+                        </div>
+                        <div class="mt-4">                    
+                            <mat-form-field>
+                                <mat-label>Password</mat-label>
+                                <input matInput placeholder="" type="password" formControlName="password">
+                                <mat-icon matPrefix class="mr-2">vpn_key</mat-icon>
+                                <!-- <mat-hint>Hint</mat-hint> -->
+                            </mat-form-field>
+                        </div>
+                        <div class="clearfix">
+                            <div class="float-right forgot-pswd">
+                                <span (click)="forgotPswdSec()">Forgot Password ?</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- login section end -->
+
+                    <!-- forgot password start -->
+                    <div *ngIf="viewForgetPswdSec">
+                        <div class="text-left back-btn">
+                            <!-- <button mat-raised-button color="accent" (click)="forgotPswdSec();"><mat-icon>keyboard_arrow_left</mat-icon> Back to login </button> -->
+                            <button (click)="forgotPswdSec();" mat-mini-fab color="accent" aria-label="Example icon button with a menu icon">
+                                <mat-icon>keyboard_arrow_left</mat-icon>
+                              </button>
+                        </div>
+                        <div class="mt-5">
+                            <mat-form-field >
+                                <mat-label>Email Id</mat-label>
+                                <input matInput placeholder="" type="text" formControlName="emailId">
+                                <mat-icon matPrefix class="mr-2">mail</mat-icon>
+                                <!-- <mat-hint>Hint</mat-hint> -->
+                              </mat-form-field>
+                        </div>
+                       
+                    </div>
+                    <!-- forgot password end -->
+                    
+                    <div class="mt-5">
+                        <button type="button" mat-raised-button color="accent" [disabled]="adminLogin.invalid">Submit</button>
+                    </div>
+                </mat-card>    
+            </form>
+            
+        </div>
+       </div>
+    </div>
+</div>

@@ -13,6 +13,9 @@ import {MatRadioModule} from '@angular/material/radio';
 import {MatSelectModule} from '@angular/material/select';
 import {MatSliderModule} from '@angular/material/slider';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import {MatCardModule} from '@angular/material/card';
+import {MatIconModule} from '@angular/material/icon';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -29,7 +32,10 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
      MatRadioModule,
      MatSelectModule,
      MatSliderModule,
-     MatSlideToggleModule
+     MatSlideToggleModule,
+     MatCardModule,
+     MatIconModule,
+     ReactiveFormsModule
   ],
   exports: [
      MatAutocompleteModule,
@@ -41,7 +47,11 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
      MatRadioModule,
      MatSelectModule,
      MatSliderModule,
-     MatSlideToggleModule
+     MatSlideToggleModule,
+     MatCardModule,
+     MatIconModule,
+     ReactiveFormsModule
+
   ]
 })
 export class SharedModuleModule { }
