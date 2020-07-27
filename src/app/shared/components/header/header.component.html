@@ -1,0 +1,39 @@
+<div class="header-wrapper">
+    <div class="container-fluid">
+        <div class="clearfix">
+            <div class="float-left">
+                <div class="hamburger">
+                    <button mat-icon-button class="example-icon" (click)="toggleMenuSlide()">
+                        <mat-icon>menu</mat-icon>
+                    </button>
+                </div>
+                <div class="logo">
+                    <!-- <img src="" alt="" class="img-fluid"> -->
+                    <span>Logo</span>
+                </div>
+            </div>
+            <div class="float-right">
+                <div class="user-profile">
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Amit Verma
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+                          <a class="dropdown-item" href="#">Action</a>
+                          <a class="dropdown-item" href="#">Logout</a>
+                        </div>
+                      </div>
+                </div>
+            </div>
+        </div>
+        <!-- menu drawer start-->
+            <div class="drawer-menu" *ngIf="viewMenuBar" [@menuBar]>
+                <ul>
+                    <li (click)="toggleMenuSlide();">Profile</li>
+                    <li>Admin Control</li>
+                    <li>Horoscope</li>
+                </ul>
+            </div>
+        <!-- menu drawer end -->
+    </div>
+</div>

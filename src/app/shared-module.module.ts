@@ -16,11 +16,15 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatCardModule} from '@angular/material/card';
 import {MatIconModule} from '@angular/material/icon';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HeaderComponent } from './shared/components/header/header.component';
+
 
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    HeaderComponent,
+  ],
   imports: [
     CommonModule,
     MatAutocompleteModule,
@@ -50,7 +54,8 @@ import { ReactiveFormsModule } from '@angular/forms';
      MatSlideToggleModule,
      MatCardModule,
      MatIconModule,
-     ReactiveFormsModule
+     ReactiveFormsModule,
+     HeaderComponent
 
   ]
 })
