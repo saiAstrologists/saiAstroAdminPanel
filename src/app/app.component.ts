@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from './shared/services/authentication/auth.service';
+import { CommonService } from './shared/services/common/common.service';
 
 @Component({
   selector: 'app-root',
@@ -13,7 +14,8 @@ export class AppComponent {
 
   constructor(
     private authService: AuthService,
-    private router: Router
+    private router: Router,
+    private commonService: CommonService
   ){
 
   }
@@ -23,8 +25,10 @@ export class AppComponent {
 
     if(this.authService.isUserAuthenticate()){
       this.router.navigate(['/dashboard']);
+      this.commonService.setUserLoginStatus(true);
     }else {
       this.router.navigate(['/login']);
+      this.commonService.setUserLoginStatus(false);
     }
 
   }

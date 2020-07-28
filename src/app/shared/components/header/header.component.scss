@@ -1,9 +1,64 @@
+@import 'src/assets/scss/variable.scss';
+
 .drawer-menu {
     width: 250px;
     height: 100%;
-    position: absolute;
+    padding: 20px 0;
+    position: fixed;
     top: 0;
     left: 0;
-    background-color: #fff;
+    background-color: $color-white;
+    box-shadow: 2px -1px 2px #d7d7d7;
     z-index: 11111;
+    .side-bar-logo {
+        padding: 0 10px 20px 20px;
+        .close-btn {
+            margin-left: 25px;
+            cursor: pointer;
+        }
+    }
+    ul {
+        padding: 0;
+        margin: 0;
+        border-top: 1px solid #d7d7d7;
+        li {
+            padding: 15px 20px;
+            letter-spacing: 1px;
+            list-style-type: none;
+            cursor: pointer;
+            border-bottom: 1px solid #d7d7d7;
+            transition: background-color 200ms linear;
+            position: relative;
+            &:hover {
+                background-color: #f3f3f3;
+                transition: background-color 200ms linear;
+            }
+
+            .mat-icon {
+                position: absolute;
+                right: 25px;
+                vertical-align: bottom;
+            }
+        }
+    }
+}
+
+.header-wrapper {
+    width: 100%;
+    position: fixed; 
+    top: 0;
+    left: 0;
+    padding: 10px 0;
+    z-index: 11111;
+    background-color: $color-white;
+}
+
+.logo-ham-sec {
+    .hamburger {
+        display: inline-block;
+    }
+    .logo {
+        margin-left: 15px;
+        display: inline-block;
+    }
 }

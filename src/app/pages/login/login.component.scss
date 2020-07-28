@@ -17,12 +17,20 @@
         }
     }
 
-    .mat-form-field { width: 250px }
+    .mat-form-field { 
+        width: 250px;
+        .mat-icon {
+            vertical-align: -4px;
+        }
+    }
 
     .forgot-pswd {
         font-size: 14px;
         margin-right: 5rem;
         cursor: pointer;
+        &:hover {
+            opacity: 0.7;
+        }
     }
 
     form {
@@ -33,7 +41,12 @@
         top: 15px;
     }
     .mat-card {
+        min-height: 405px;
         background-color: rgba(255,255,255,0.9);
+        .mat-card-title {
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
     }
 
     button {

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { CommonService } from '../../shared/services/common/common.service';
 
 @Component({
   selector: 'app-login',
@@ -9,7 +11,10 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 export class LoginComponent implements OnInit {
   adminLogin: FormGroup;
   viewForgetPswdSec: boolean = false;
-  constructor() {
+  constructor(
+    private router : Router,
+    private commonService: CommonService,
+  ) {
 
   }
 
@@ -40,6 +45,15 @@ export class LoginComponent implements OnInit {
     this.adminLogin.get('password').updateValueAndValidity()
     this.adminLogin.get('emailId').updateValueAndValidity();
 
+  }
+
+
+  submitForm(formData: any){
+    if(formData.valid){
+      sessionStorage.setItem('token', 'hjkhkqhbbksjhcnjkkx');
+      this.commonService.setUserLoginStatus(true);
+      this.router.navigate(['/dashboard']);
+    }
   }
 
 }

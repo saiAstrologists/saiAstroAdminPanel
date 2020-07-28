@@ -3,7 +3,8 @@
     <div class="container">
        <div class="row justify-content-center align-items-center">
         <div class="col-5">
-            <form [formGroup]="adminLogin" class="text-center">
+            <form [formGroup]="adminLogin" class="text-center" (ngSubmit)="submitForm(adminLogin)">
+                <!-- (ngSubmit)="!viewForgetPswdSec ? loginUser(adminLogin): forgotPassword(adminLogin)" -->
                 <mat-card class="pt-5 pb-5">
                     <mat-card-title class="text-center">{{viewForgetPswdSec ? 'Forgot Password': 'Login'}}</mat-card-title>
                     <!-- login section start -->
@@ -53,7 +54,7 @@
                     <!-- forgot password end -->
                     
                     <div class="mt-5">
-                        <button type="button" mat-raised-button color="accent" [disabled]="adminLogin.invalid">Submit</button>
+                        <button type="submit" mat-raised-button color="accent" [disabled]="adminLogin.invalid">Submit</button>
                     </div>
                 </mat-card>    
             </form>

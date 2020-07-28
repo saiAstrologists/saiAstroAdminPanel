@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { trigger, transition, style, animate } from '@angular/animations';
+import { AuthService } from '../../services/authentication/auth.service';
+import { CommonService } from '../../services/common/common.service';
 
 @Component({
   selector: 'app-header',
@@ -24,13 +26,27 @@ import { trigger, transition, style, animate } from '@angular/animations';
         )
       ]
     )
-  ]
+  ],
 })
 export class HeaderComponent implements OnInit {
   viewMenuBar: boolean = false;
-  constructor() { }
+  isUserLogin: boolean = false;
+  constructor(
+    private authService: AuthService,
+    private commonService: CommonService,
+  ) { }
 
   ngOnInit(): void {
+
+    this.isUserLogin = this.authService.isUserAuthenticate();
+
+    this.isUserLogin = true;
+
+
+    this.commonService.checkUserLoginStatus.subscribe(data => {
+      this.isUserLogin = data;
+    })
+
   }
 
   toggleMenuSlide(){

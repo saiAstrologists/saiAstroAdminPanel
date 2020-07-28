@@ -1,20 +1,22 @@
 <div class="header-wrapper">
     <div class="container-fluid">
-        <div class="clearfix">
+        <div class="clearfix"  *ngIf="isUserLogin">
             <div class="float-left">
-                <div class="hamburger">
-                    <button mat-icon-button class="example-icon" (click)="toggleMenuSlide()">
-                        <mat-icon>menu</mat-icon>
-                    </button>
+                <div class="logo-ham-sec">
+                    <div class="hamburger">
+                        <button mat-icon-button class="example-icon" (click)="toggleMenuSlide()">
+                            <mat-icon>menu</mat-icon>
+                        </button>
+                    </div>
+                    <div class="logo">
+                        <img src="assets/imgs/logo.svg" alt="Sai Astro" class="img-fluid" width="180px">
+                    </div>
                 </div>
-                <div class="logo">
-                    <!-- <img src="" alt="" class="img-fluid"> -->
-                    <span>Logo</span>
-                </div>
+               
             </div>
             <div class="float-right">
                 <div class="user-profile">
-                    <div class="dropdown">
+                    <div class="dropdown mt-1">
                         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                           Amit Verma
                         </button>
@@ -28,12 +30,25 @@
         </div>
         <!-- menu drawer start-->
             <div class="drawer-menu" *ngIf="viewMenuBar" [@menuBar]>
+                <div class="side-bar-logo">
+                    <img class="mb-2" src="assets/imgs/logo.svg" class="img-fluid" width="150px">
+                    <button mat-icon-button class="close-btn" (click)="toggleMenuSlide()">
+                        <mat-icon>close</mat-icon>
+                    </button>
+                </div>
                 <ul>
-                    <li (click)="toggleMenuSlide();">Profile</li>
+                    <li>Profile <mat-icon>person</mat-icon></li>
+                    <li>Dashboard <mat-icon>home</mat-icon></li>
                     <li>Admin Control</li>
                     <li>Horoscope</li>
                 </ul>
             </div>
         <!-- menu drawer end -->
+
+        <!-- when user is not login start -->
+        <div class="text-center" *ngIf="!isUserLogin">
+            <img src="assets/imgs/logo.svg" alt="Sai Astro" class="img-fluid" width="180px">
+        </div>
+        <!-- when user is not login end -->
     </div>
 </div>
