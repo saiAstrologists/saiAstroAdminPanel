@@ -1,6 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 
-@import '~@angular/material/theming';
+@import '~@angular/material/theming';   
 
 // @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
@@ -11,8 +11,21 @@ $warn:    mat-palette($mat-deep-orange, 300, 500, 800);
 $theme:   mat-light-theme($primary,$accent,$warn);
 @include angular-material-theme($theme);
 
+
+@font-face {
+    font-family: 'Muli';
+    src: url('./assets/fonts/Muli-VariableFont_wght.ttf') format('truetype');
+    font-weight: bolder;
+    font-style: normal;
+  }
+  
+
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { 
+    margin: 0; 
+    // font-family: Roboto, "Helvetica Neue", sans-serif; 
+    font-family: Muli, sans-serif;
+}
 
 a, button {
     outline: none;
@@ -20,4 +33,22 @@ a, button {
         outline: none;
     }
 }
+
+
+a, button , h1, h2, h3, h4, h5, h6, div, ul, li, span {
+    font-family: Muli, sans-serif;
+} 
+
+.font-muli {
+    font-family: Muli, sans-serif;
+}
+
+
+.mat-flat-button.mat-accent, .mat-raised-button.mat-accent, .mat-fab.mat-accent, .mat-mini-fab.mat-accent {
+    background-color: #f9a825;
+    color: #000;
+}
+
+
+
 

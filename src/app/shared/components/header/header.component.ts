@@ -53,4 +53,9 @@ export class HeaderComponent implements OnInit {
     this.viewMenuBar = !this.viewMenuBar;
   }
 
+  logout(){
+    this.authService.logout();
+    this.isUserLogin = false;
+  }
+
 }

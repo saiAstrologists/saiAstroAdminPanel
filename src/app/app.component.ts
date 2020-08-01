@@ -24,7 +24,7 @@ export class AppComponent {
   ngOnInit(){
 
     if(this.authService.isUserAuthenticate()){
-      this.router.navigate(['/dashboard']);
+      // this.router.navigate(['/dashboard']);
       this.commonService.setUserLoginStatus(true);
     }else {
       this.router.navigate(['/login']);

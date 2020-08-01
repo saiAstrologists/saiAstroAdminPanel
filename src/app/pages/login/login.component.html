@@ -6,7 +6,9 @@
             <form [formGroup]="adminLogin" class="text-center" (ngSubmit)="submitForm(adminLogin)">
                 <!-- (ngSubmit)="!viewForgetPswdSec ? loginUser(adminLogin): forgotPassword(adminLogin)" -->
                 <mat-card class="pt-5 pb-5">
-                    <mat-card-title class="text-center">{{viewForgetPswdSec ? 'Forgot Password': 'Login'}}</mat-card-title>
+                    <mat-card-title class="text-center">
+                        <span>{{viewForgetPswdSec ? 'Forgot Password': 'Login'}}</span>
+                    </mat-card-title>
                     <!-- login section start -->
                     <div *ngIf="!viewForgetPswdSec">
                         <div class="mt-5">

@@ -14,9 +14,13 @@ const routes: Routes = [
   },
   {
     path: 'dashboard',
-    loadChildren: () => import('./pages/dashboard/dashboard.module').then(page => page.DashboardModule)
+    loadChildren: () => import('./pages/dashboard/dashboard.module').then(page => page.DashboardModule),
   },
-  
+  {
+    path: 'astrologer',
+    loadChildren: () => import('./pages/astrologer/astrologer.module').then(page => page.AstrologerModule),
+  }
+
 ];
 
 @NgModule({
