@@ -3,13 +3,15 @@ import { CommonModule } from '@angular/common';
 
 import { AstrologerRoutingModule } from './astrologer-routing.module';
 import { AstrologerComponent } from './astrologer.component';
+import { SharedModuleModule } from '../../shared-module.module';
 
 
 @NgModule({
   declarations: [AstrologerComponent],
   imports: [
     CommonModule,
-    AstrologerRoutingModule
+    SharedModuleModule,
+    AstrologerRoutingModule,
   ]
 })
 export class AstrologerModule { }

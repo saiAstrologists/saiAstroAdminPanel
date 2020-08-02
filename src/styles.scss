@@ -7,7 +7,7 @@
 @include mat-core();
 $primary: mat-palette($mat-grey);
 $accent:  mat-palette($mat-light-blue, 600, 300, 600);
-$warn:    mat-palette($mat-deep-orange, 300, 500, 800);
+$warn:    mat-palette($mat-red, 300, 500, 800);
 $theme:   mat-light-theme($primary,$accent,$warn);
 @include angular-material-theme($theme);
 
@@ -35,7 +35,7 @@ a, button {
 }
 
 
-a, button , h1, h2, h3, h4, h5, h6, div, ul, li, span {
+a, button , h1, h2, h3, h4, h5, h6, div, ul, li, span, table, th, td {
     font-family: Muli, sans-serif;
 } 
 

@@ -17,6 +17,8 @@ import {MatCardModule} from '@angular/material/card';
 import {MatIconModule} from '@angular/material/icon';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HeaderComponent } from './shared/components/header/header.component';
+import {MatTableModule} from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 
 
@@ -27,6 +29,7 @@ import { HeaderComponent } from './shared/components/header/header.component';
   ],
   imports: [
     CommonModule,
+    MatTableModule,
     MatAutocompleteModule,
      MatButtonModule,
      MatCheckboxModule,
@@ -39,10 +42,12 @@ import { HeaderComponent } from './shared/components/header/header.component';
      MatSlideToggleModule,
      MatCardModule,
      MatIconModule,
-     ReactiveFormsModule
+     MatPaginatorModule,
+     ReactiveFormsModule,
   ],
   exports: [
      MatAutocompleteModule,
+     MatTableModule,
      MatButtonModule,
      MatCheckboxModule,
      MatDatepickerModule,
@@ -54,6 +59,7 @@ import { HeaderComponent } from './shared/components/header/header.component';
      MatSlideToggleModule,
      MatCardModule,
      MatIconModule,
+     MatPaginatorModule,
      ReactiveFormsModule,
      HeaderComponent
 
