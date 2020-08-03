@@ -19,6 +19,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HeaderComponent } from './shared/components/header/header.component';
 import {MatTableModule} from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import {MatTabsModule} from '@angular/material/tabs';
 
 
 
@@ -30,6 +31,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
   imports: [
     CommonModule,
     MatTableModule,
+    MatTabsModule,
     MatAutocompleteModule,
      MatButtonModule,
      MatCheckboxModule,
@@ -48,6 +50,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
   exports: [
      MatAutocompleteModule,
      MatTableModule,
+     MatTabsModule,
      MatButtonModule,
      MatCheckboxModule,
      MatDatepickerModule,

@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
+import { Router } from '@angular/router';
 
 export interface PeriodicElement {
   name: string;
@@ -56,7 +57,9 @@ export class AstrologerComponent implements OnInit {
 
   
 
-  constructor() { }
+  constructor(
+    private router : Router
+  ) { }
 
   ngOnInit(): void {
 
@@ -123,6 +126,7 @@ export class AstrologerComponent implements OnInit {
 
   viewProfile(astrologerData){
     console.log(astrologerData, 'astrologer data');
+    this.router.navigate(['/astrologer/astro-profile'])
   }
 
 }

@@ -19,6 +19,11 @@ const routes: Routes = [
   {
     path: 'astrologer',
     loadChildren: () => import('./pages/astrologer/astrologer.module').then(page => page.AstrologerModule),
+  },
+  {
+    path: '',
+    redirectTo: 'dashboard',
+    pathMatch: 'full',
   }
 
 ];
