@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { trigger, transition, style, animate } from '@angular/animations';
 import { AuthService } from '../../services/authentication/auth.service';
 import { CommonService } from '../../services/common/common.service';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-header',
@@ -34,6 +36,7 @@ export class HeaderComponent implements OnInit {
   constructor(
     private authService: AuthService,
     private commonService: CommonService,
+    private router : Router
   ) { }
 
   ngOnInit(): void {
@@ -56,6 +59,11 @@ export class HeaderComponent implements OnInit {
   logout(){
     this.authService.logout();
     this.isUserLogin = false;
+  }
+
+  openPage(pageUrl){
+    this.router.navigate([pageUrl]);
+    this.toggleMenuSlide();
   }
 
 }

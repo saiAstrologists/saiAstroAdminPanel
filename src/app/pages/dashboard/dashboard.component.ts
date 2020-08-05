@@ -17,7 +17,6 @@ export class DashboardComponent implements OnInit {
 
 
   openLink(routeTo){
-    this.router.navigate(['/astrologer']);
-    console.log(routeTo, 'route to');
+    this.router.navigate([routeTo]);
   }
 }

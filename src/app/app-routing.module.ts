@@ -10,7 +10,7 @@ const routes: Routes = [
   {
     path: 'subadmin',
     loadChildren: () => import('./pages/subadmin/subadmin.module').then(page => page.SubadminModule),
-    canActivate: [AuthGuardService]
+    // canActivate: [AuthGuardService]
   },
   {
     path: 'dashboard',
