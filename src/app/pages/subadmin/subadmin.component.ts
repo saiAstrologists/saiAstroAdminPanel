@@ -1,6 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
+import { MatDialog } from '@angular/material/dialog';
+import { AdminFormComponent } from './admin-form/admin-form.component';
 
 @Component({
   selector: 'app-subadmin',
@@ -15,35 +17,26 @@ export class SubadminComponent implements OnInit {
 
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
 
-  constructor() { }
+  constructor(
+    private dialog: MatDialog
+  ) { }
 
   ngOnInit(): void {
     let data = [
       {
-          "astrologistDetails": {
-              "skills": [],
-              "language": []
-          },
           "email": "bijendrasingh9146@gmail.com",
           "_id": "5f1d8528411bc60dbd09ddb3",
           "name": "Bijendra Swami",
           "status": 'Active'
       },
       {
-          "astrologistDetails": {
-              "skills": [],
-              "language": []
-          },
           "email": "bijendrasingh9146@gmail.com",
           "_id": "5f255bb36507cd5af86a4102",
           "name": "Bijendra123",
           "status": 'Active'
       },
       {
-          "astrologistDetails": {
-              "skills": [],
-              "language": []
-          },
+
           "email": "amitverma@gmail.com",
           "_id": "5f255bb36507cd5af86a4103",
           "name": "Amit Verma",
@@ -65,16 +58,12 @@ export class SubadminComponent implements OnInit {
   //filter data table end
 
   // add admin row data
-  addAdminData(){
+  addAdminData(addData){
     this.dataSource.data.push({
-      "astrologistDetails": {
-          "skills": [],
-          "language": []
-      },
-      "email": "verma@gmail.com",
-      "_id": "5f255bb36507cd5af86a4103",
-      "name": "Verma Karma",
-      "status": 'Active'
+      "email": addData.email,
+      "_id": addData._id,
+      "name": addData.name,
+      "status": addData.status,
   });
 
   // this.dataSource = new MatTableDataSource(this.dataSource.data);
@@ -86,15 +75,37 @@ export class SubadminComponent implements OnInit {
     this.dataSource.filter = "";
   }
 
-  editAdminData(rowData, index){
-    this.dataSource.data.filter((list, i) => {
-      if(i == index) {
-        rowData.name = "edit";
-        list = rowData;
+  editAdminData(rowData){
+    this.dataSource.data.filter((list) => {
+      if(list._id == rowData._id) {
+        list.name =  rowData.name;
+        list.email = rowData.email;
+        list.status = rowData.status;
       }
     });
 
     this.dataSource.filter = "";
+  }
+
+  openAdminModal(rowData, type){
+    const dialogRef = this.dialog.open(AdminFormComponent, {
+      width: '500px',
+      data: {
+        modelType : type,
+        adminData: rowData
+      }
+    });
+
+    dialogRef.afterClosed().subscribe(modalResponse => {
+      console.log('The dialog was closed', modalResponse);
+      if(modalResponse && modalResponse.type) {
+        if(modalResponse.type == 'add'){
+          this.addAdminData(modalResponse.data);
+        }else if(modalResponse.type == 'edit'){
+          this.editAdminData(modalResponse.data);
+        }
+      }
+    });
   }
 
 }

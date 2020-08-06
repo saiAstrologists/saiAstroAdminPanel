@@ -20,6 +20,8 @@ import { HeaderComponent } from './shared/components/header/header.component';
 import {MatTableModule} from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import {MatTabsModule} from '@angular/material/tabs';
+import { MatDialogModule } from '@angular/material/dialog';
+import { ErrorcontrolMessageComponent } from './shared/components/errorcontrol-message/errorcontrol-message.component';
 
 
 
@@ -27,6 +29,7 @@ import {MatTabsModule} from '@angular/material/tabs';
 @NgModule({
   declarations: [
     HeaderComponent,
+    ErrorcontrolMessageComponent,
   ],
   imports: [
     CommonModule,
@@ -44,6 +47,7 @@ import {MatTabsModule} from '@angular/material/tabs';
      MatSlideToggleModule,
      MatCardModule,
      MatIconModule,
+     MatDialogModule,
      MatPaginatorModule,
      ReactiveFormsModule,
   ],
@@ -62,9 +66,11 @@ import {MatTabsModule} from '@angular/material/tabs';
      MatSlideToggleModule,
      MatCardModule,
      MatIconModule,
+     MatDialogModule,
      MatPaginatorModule,
      ReactiveFormsModule,
-     HeaderComponent
+     HeaderComponent,
+     ErrorcontrolMessageComponent
 
   ]
 })

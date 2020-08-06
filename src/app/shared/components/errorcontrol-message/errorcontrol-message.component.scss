@@ -1,0 +1,10 @@
+@import 'src/assets/scss/variable.scss';
+
+.error-message {
+    margin-top: -10px;
+    p {
+        margin: 0;
+        font-size: 12px;
+        color: $color-warn;
+    }
+}
