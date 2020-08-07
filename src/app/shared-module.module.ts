@@ -15,7 +15,7 @@ import {MatSliderModule} from '@angular/material/slider';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatCardModule} from '@angular/material/card';
 import {MatIconModule} from '@angular/material/icon';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HeaderComponent } from './shared/components/header/header.component';
 import {MatTableModule} from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
@@ -50,6 +50,7 @@ import { ErrorcontrolMessageComponent } from './shared/components/errorcontrol-m
      MatDialogModule,
      MatPaginatorModule,
      ReactiveFormsModule,
+     FormsModule,
   ],
   exports: [
      MatAutocompleteModule,
@@ -69,6 +70,7 @@ import { ErrorcontrolMessageComponent } from './shared/components/errorcontrol-m
      MatDialogModule,
      MatPaginatorModule,
      ReactiveFormsModule,
+     FormsModule,
      HeaderComponent,
      ErrorcontrolMessageComponent
 

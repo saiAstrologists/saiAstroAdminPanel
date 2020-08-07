@@ -23,6 +23,9 @@
     .form-field-wrapper {
         width: 250px;
         margin: 25px auto 0;
+        ::ng-deep .mat-input-element {
+            height: 18px;
+        }
     }
 
     .mat-form-field { 
@@ -47,10 +50,13 @@
     .back-btn {
         position: absolute;
         top: 15px;
+        ::ng-deep .mat-mini-fab .mat-button-wrapper {
+            line-height: 21px;
+        }
     }
 
     .mat-card {
-        min-height: 405px;
+        min-height: 440px;
         background-color: rgba(255,255,255,0.95);
         .mat-card-title {
             font-weight: 700;

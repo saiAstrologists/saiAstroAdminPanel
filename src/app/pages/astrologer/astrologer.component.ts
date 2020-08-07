@@ -2,6 +2,8 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
+import { ConfirmationModalComponent } from './confirmation-modal/confirmation-modal.component';
 
 export interface PeriodicElement {
   name: string;
@@ -58,7 +60,8 @@ export class AstrologerComponent implements OnInit {
   
 
   constructor(
-    private router : Router
+    private router : Router,
+    private dialog: MatDialog
   ) { }
 
   ngOnInit(): void {
@@ -75,7 +78,7 @@ export class AstrologerComponent implements OnInit {
       
     ]
 
-    let data = [
+    let data: any = [
       {
           "astrologistDetails": {
               "skills": [],
@@ -107,6 +110,19 @@ export class AstrologerComponent implements OnInit {
           "status": 'Approved'
       }
   ];
+
+
+  // set is dropdown value
+  data.forEach(list => {
+    if(list.status == 'Pending'){
+        list.isDropdown = true;
+    }else {
+      list.isDropdown = false;
+    }
+  })
+
+  console.log(data, 'data');
+
     this.dataSource =  new MatTableDataSource(data);
     // this.dataSource =  new MatTableDataSource(ELEMENT_DATA);
     this.dataSource.paginator = this.paginator;
@@ -127,6 +143,47 @@ export class AstrologerComponent implements OnInit {
   viewProfile(astrologerData){
     console.log(astrologerData, 'astrologer data');
     this.router.navigate(['/astrologer/astro-profile'])
+  }
+
+
+  statusChange(statusEvent, index){
+    console.log(statusEvent, 'event');
+    if(statusEvent && statusEvent.value){
+      this.confirmationModal(statusEvent, index)
+    }
+  }
+
+  confirmationModal(selectValue,index){
+    const dialogRef = this.dialog.open(ConfirmationModalComponent, {
+      width: '400px',
+      // data: {
+      //   modelType : type,
+      //   adminData: rowData
+      // }
+    });
+
+    dialogRef.afterClosed().subscribe(modalResponse => {
+      console.log(modalResponse, 'modal response');
+      if(modalResponse == 'no'){
+        let value = this.dataSource.data[index].status;
+        console.log(value, 'value');
+        if(value == 'Pending'){
+          selectValue.source.writeValue(null);
+        }else {
+          selectValue.source.writeValue(value);
+        }
+        // selectValue.source.writeValue(null);
+      }else if (modalResponse == 'yes') {
+        this.dataSource.data.filter((list, i) => {
+          if(index == i ){
+            list.status = selectValue.value
+          }
+        });
+        this.dataSource.filter = "";
+
+        // call service
+      }
+    })
   }
 
 }

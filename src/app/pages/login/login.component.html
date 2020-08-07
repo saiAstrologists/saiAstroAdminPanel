@@ -5,7 +5,10 @@
         <div class="col-5">
             <form [formGroup]="adminLogin" (ngSubmit)="submitForm(adminLogin)">
                 <!-- (ngSubmit)="!viewForgetPswdSec ? loginUser(adminLogin): forgotPassword(adminLogin)" -->
-                <mat-card class="pt-5 pb-5">
+                <mat-card class="pb-5">
+                    <div class="logo-view mb-5 text-center">
+                        <img src="assets/imgs/sai-logo.png" alt="" class="img-fluid" width="180px">
+                    </div>
                     <mat-card-title class="text-center">
                         <span>{{viewForgetPswdSec ? 'Forgot Password': 'Login'}}</span>
                     </mat-card-title>

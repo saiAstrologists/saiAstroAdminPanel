@@ -5,17 +5,19 @@ import { SubadminRoutingModule } from './subadmin-routing.module';
 import { SubadminComponent } from './subadmin.component';
 import { SharedModuleModule } from '../../shared-module.module';
 import { AdminFormComponent } from './admin-form/admin-form.component';
+import { AdminConfirmationModalComponent } from './admin-confirmation-modal/admin-confirmation-modal.component';
 
 
 @NgModule({
-  declarations: [SubadminComponent, AdminFormComponent],
+  declarations: [SubadminComponent, AdminFormComponent, AdminConfirmationModalComponent],
   imports: [
     CommonModule,
     SubadminRoutingModule,
     SharedModuleModule
   ],
   exports: [
-    AdminFormComponent
+    AdminFormComponent,
+    AdminConfirmationModalComponent
   ]
 })
 export class SubadminModule { }

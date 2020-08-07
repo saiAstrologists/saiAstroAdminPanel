@@ -3,6 +3,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatDialog } from '@angular/material/dialog';
 import { AdminFormComponent } from './admin-form/admin-form.component';
+import { AdminConfirmationModalComponent } from './admin-confirmation-modal/admin-confirmation-modal.component';
 
 @Component({
   selector: 'app-subadmin',
@@ -71,8 +72,21 @@ export class SubadminComponent implements OnInit {
   }
 
   deleteAdminData(rowData,index){
-    this.dataSource.data.splice(index,1);
-    this.dataSource.filter = "";
+
+    const dialogConfirmation = this.dialog.open(AdminConfirmationModalComponent, {
+      width: '400px'
+    })
+
+    dialogConfirmation.afterClosed().subscribe(confirmationModalResponse => {
+      if(confirmationModalResponse == 'yes') {
+        this.dataSource.data.splice(index,1);
+        this.dataSource.filter = "";
+      }else {
+        
+      }
+    })
+
+    
   }
 
   editAdminData(rowData){

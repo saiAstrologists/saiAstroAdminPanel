@@ -7,10 +7,11 @@
 
         <!-- search data table filter start -->
         <div class="clearfix">
-          <div class="float-right">
+          <div class="float-right filter-field">
             <mat-form-field>
               <mat-label>Filter</mat-label>
-              <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
+              <input matInput (keyup)="applyFilter($event)" placeholder="Search by: Name, Email, Status..." #input>
+              <mat-icon matSuffix>filter_alt</mat-icon>
             </mat-form-field>
           </div>
         </div>
@@ -40,15 +41,15 @@
               <!-- Status Column -->
               <ng-container matColumnDef="status">
                 <th mat-header-cell *matHeaderCellDef> Status </th>
-                <td mat-cell *matCellDef="let element">
+                <td mat-cell *matCellDef="let element; let i = index">
                   <!-- if status is not pending then show -->
-                  <span *ngIf="element.status != 'Pending'">{{element.status}}</span>
-                  
+                  <span *ngIf="element.status != 'Pending' && !element.isDropdown">{{element.status}}</span>
+                  <!-- {{selectedValue'+'i"}} -->
                   <!-- if status is pending then show dropdown -->
-                  <div class="select-status" *ngIf="element.status == 'Pending'">
+                  <div class="select-status" *ngIf="element.status == 'Pending' || element.isDropdown ">
                     <mat-form-field appearance="fill">
                       <mat-label>Status</mat-label>
-                      <mat-select>
+                      <mat-select (selectionChange)="statusChange($event, i)">
                         <mat-option *ngFor="let statusType of statusTypeList" [value]="statusType.name">
                           {{statusType.name}}
                         </mat-option>
