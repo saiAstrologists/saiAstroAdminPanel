@@ -4,6 +4,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { ConfirmationModalComponent } from './confirmation-modal/confirmation-modal.component';
+import { AstrologerService } from './astrologer.service';
 
 export interface PeriodicElement {
   name: string;
@@ -61,10 +62,12 @@ export class AstrologerComponent implements OnInit {
 
   constructor(
     private router : Router,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private astrologerService: AstrologerService
   ) { }
 
   ngOnInit(): void {
+    this.getAstrologersList();
 
     this.statusTypeList = [
      {
@@ -183,6 +186,12 @@ export class AstrologerComponent implements OnInit {
 
         // call service
       }
+    })
+  }
+
+  getAstrologersList(){
+    this.astrologerService.getAstrologers().subscribe(response => {
+      console.log(response, 'response');
     })
   }
 

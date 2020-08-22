@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SharedModuleModule } from './shared-module.module';
 import { AuthGuardService } from './shared/services/authentication/auth-guard.service';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpInterInterceptor } from './shared/services/http/http-inter.interceptor';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,14 @@ import { AuthGuardService } from './shared/services/authentication/auth-guard.se
     BrowserAnimationsModule,
     SharedModuleModule,
   ],
-  providers: [AuthGuardService],
+  providers: [
+    AuthGuardService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpInterInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

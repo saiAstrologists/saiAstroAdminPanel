@@ -22,6 +22,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import {MatTabsModule} from '@angular/material/tabs';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ErrorcontrolMessageComponent } from './shared/components/errorcontrol-message/errorcontrol-message.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -51,6 +52,7 @@ import { ErrorcontrolMessageComponent } from './shared/components/errorcontrol-m
      MatPaginatorModule,
      ReactiveFormsModule,
      FormsModule,
+     HttpClientModule,
   ],
   exports: [
      MatAutocompleteModule,
@@ -72,7 +74,8 @@ import { ErrorcontrolMessageComponent } from './shared/components/errorcontrol-m
      ReactiveFormsModule,
      FormsModule,
      HeaderComponent,
-     ErrorcontrolMessageComponent
+     ErrorcontrolMessageComponent,
+     HttpClientModule
 
   ]
 })

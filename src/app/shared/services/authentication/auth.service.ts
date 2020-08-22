@@ -23,9 +23,9 @@ export class AuthService {
   }
 
 
-  getUserRole(){
-    if(sessionStorage.getItem('userRole')){
-      return sessionStorage.getItem('userRole');
+  getAdminRole(){
+    if(sessionStorage.getItem('adminType')){
+      return sessionStorage.getItem('adminType');
     }
   }
 

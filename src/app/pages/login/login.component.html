@@ -3,22 +3,23 @@
     <div class="container">
        <div class="row justify-content-center align-items-center">
         <div class="col-5">
-            <form [formGroup]="adminLogin" (ngSubmit)="submitForm(adminLogin)">
+            <form [formGroup]="adminLogin">
+                <!-- (ngSubmit)="submitForm(adminLogin)" -->
                 <!-- (ngSubmit)="!viewForgetPswdSec ? loginUser(adminLogin): forgotPassword(adminLogin)" -->
                 <mat-card class="pb-5">
-                    <div class="logo-view mb-5 text-center">
-                        <img src="assets/imgs/sai-logo.png" alt="" class="img-fluid" width="180px">
+                    <div class="logo-view mt-4 mb-5 text-center">
+                        <img src="assets/imgs/sai-logo.png" alt="" class="img-fluid" width="220px">
                     </div>
                     <mat-card-title class="text-center">
                         <span>{{viewForgetPswdSec ? 'Forgot Password': 'Login'}}</span>
                     </mat-card-title>
                     <!-- login section start -->
-                    <div *ngIf="!viewForgetPswdSec">
+                    <div *ngIf="!(viewForgetPswdSec || viewResetPswdSec)">
                         <div class="form-field-wrapper">
                             <mat-form-field >
-                                <mat-label>Username</mat-label>
-                                <input matInput placeholder="" type="text" formControlName="username">
-                                <mat-icon matPrefix class="mr-2">person</mat-icon>
+                                <mat-label>Mobile No</mat-label>
+                                <input matInput placeholder="" type="text" formControlName="username" [maxLength]="mobileMax">
+                                <mat-icon matPrefix class="mr-2">phone</mat-icon>
                                 <!-- <mat-hint>Hint</mat-hint> -->
                               </mat-form-field>
                               <app-errorcontrol-message [control]="adminLogin.get('username')" [controlName]="'Username'"></app-errorcontrol-message>
@@ -32,10 +33,17 @@
                             </mat-form-field>
                             <app-errorcontrol-message [control]="adminLogin.get('password')" [controlName]="'Password'"></app-errorcontrol-message>
                         </div>
-                        <div class="clearfix">
+                        <div class="clearfix reset-frgt">
+                            <div class="float-left reset-pswd">
+                                <span (click)="resetPswdSec()">Reset ?</span>
+                            </div>
                             <div class="float-right forgot-pswd">
                                 <span (click)="forgotPswdSec()">Forgot Password ?</span>
                             </div>
+                        </div>
+
+                        <div class="mt-5 text-center">
+                            <button type="button" mat-raised-button color="accent" (click)="submitForm(adminLogin)" [disabled]="adminLogin.invalid">Login</button>
                         </div>
                     </div>
                     <!-- login section end -->
@@ -50,20 +58,67 @@
                         </div>
                         <div class="form-field-wrapper">
                             <mat-form-field >
-                                <mat-label>Email Id</mat-label>
-                                <input matInput placeholder="" type="text" formControlName="emailId">
-                                <mat-icon matPrefix class="mr-2">mail</mat-icon>
+                                <mat-label>Mobile No</mat-label>
+                                <input matInput placeholder="" type="text" formControlName="forgotMobileno" [maxLength]="mobileMax">
+                                <mat-icon matPrefix class="mr-2">phone</mat-icon>
                                 <!-- <mat-hint>Hint</mat-hint> -->
                               </mat-form-field>
-                              <app-errorcontrol-message [control]="adminLogin.get('emailId')" [controlName]="'Email Id'"></app-errorcontrol-message>
+                              <app-errorcontrol-message [control]="adminLogin.get('forgotMobileno')" [controlName]="'Mobile No'"></app-errorcontrol-message>
                         </div>
-                       
+                        <div class="form-field-wrapper">
+                            <mat-form-field >
+                                <mat-label>OTP</mat-label>
+                                <input matInput placeholder="" type="text" formControlName="otp">
+                                <mat-icon matPrefix class="mr-2">perm_phone_msg</mat-icon>
+                                <!-- <mat-hint>Hint</mat-hint> -->
+                              </mat-form-field>
+                              <app-errorcontrol-message [control]="adminLogin.get('otp')" [controlName]="'Otp'" [maxLength]="otpMax"></app-errorcontrol-message>
+                        </div>
+                        <div class="mt-5 text-center">
+                            <button type="button" mat-raised-button color="accent" (click)="isOtpFill ? verifyMobileOtp(adminLogin) : forgotPassword(adminLogin)" [disabled]="adminLogin.invalid">{{isOtpFill ? 'Verify' : 'Get'}} OTP</button>
+                        </div>
                     </div>
                     <!-- forgot password end -->
-                    
-                    <div class="mt-5 text-center">
-                        <button type="submit" mat-raised-button color="accent" [disabled]="adminLogin.invalid">Submit</button>
+
+
+                    <!-- reset password section -->
+                    <div class="reset-password-sec" *ngIf="viewResetPswdSec">
+                        <div class="text-left back-btn">
+                            <button (click)="resetPswdSec();" mat-mini-fab color="accent" aria-label="Example icon button with a menu icon">
+                                <mat-icon>keyboard_arrow_left</mat-icon>
+                              </button>
+                        </div>
+                        <div class="form-field-wrapper">
+                            <mat-form-field >
+                                <mat-label>Mobile No</mat-label>
+                                <input matInput placeholder="" type="text" formControlName="resetMobileno" [maxLength]="mobileMax">
+                                <mat-icon matPrefix class="mr-2">phone</mat-icon>
+                              </mat-form-field>
+                              <app-errorcontrol-message [control]="adminLogin.get('resetMobileno')" [controlName]="'Mobile No'"></app-errorcontrol-message>
+                        </div>
+                        <div class="form-field-wrapper">
+                            <mat-form-field >
+                                <mat-label>Password</mat-label>
+                                <input matInput placeholder="" type="password" formControlName="resetPassword" (focusout)="passwordResetCheck($event)">
+                                <mat-icon matPrefix class="mr-2">vpn_key</mat-icon>
+                                <!-- <mat-hint>Hint</mat-hint> -->
+                              </mat-form-field>
+                              <app-errorcontrol-message [control]="adminLogin.get('resetPassword')" [controlName]="'Reset Password'"></app-errorcontrol-message>
+                        </div>
+                        <div class="form-field-wrapper">
+                            <mat-form-field >
+                                <mat-label>Confirm Password</mat-label>
+                                <input matInput placeholder="" type="password" formControlName="resetConfirmPassword" (focustout)="confirmResetCheck($event)">
+                                <mat-icon matPrefix class="mr-2">vpn_key</mat-icon>
+                              </mat-form-field>
+                              <app-errorcontrol-message [control]="adminLogin.get('resetConfirmPassword')" [controlName]="'Confirm Password'"></app-errorcontrol-message>
+                        </div>
+                        <div class="mt-5 text-center">
+                            <button type="button" mat-raised-button color="accent" (click)="setResetPassword(adminLogin)" [disabled]="adminLogin.invalid">{{isOtpFill ? 'Verify' : 'Get'}} OTP</button>
+                        </div>
                     </div>
+                    <!-- reset password section end -->
+                    
                 </mat-card>    
             </form>
             

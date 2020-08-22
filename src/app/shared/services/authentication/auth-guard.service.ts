@@ -10,9 +10,10 @@ export class AuthGuardService implements CanActivate  {
   ) { }
 
   canActivate(): boolean {
-    if(this.authService.getUserRole() == 'superAdmin'){
+    if(this.authService.getAdminRole() == 'master'){
       return true;
     }
     return false;
   }
+
 }

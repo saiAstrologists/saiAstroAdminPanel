@@ -33,6 +33,7 @@ import { Router } from '@angular/router';
 export class HeaderComponent implements OnInit {
   viewMenuBar: boolean = false;
   isUserLogin: boolean = false;
+  isMasterAdmin: boolean = false;
   constructor(
     private authService: AuthService,
     private commonService: CommonService,
@@ -48,6 +49,13 @@ export class HeaderComponent implements OnInit {
 
     this.commonService.checkUserLoginStatus.subscribe(data => {
       this.isUserLogin = data;
+
+      if(this.authService.getAdminRole() == 'master'){
+        this.isMasterAdmin = true;
+      }else {
+        this.isMasterAdmin = false;
+      }
+
     })
 
   }
