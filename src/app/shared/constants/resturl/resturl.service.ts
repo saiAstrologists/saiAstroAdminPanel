@@ -15,7 +15,8 @@ export class ResturlService {
   // astrologer
   public static get astrologerList(): string {return '/users/getastrologerslist'; }
 
-  // 9137490540
+  // admin
+  public static get createAdmin(): string { return '/create'; }
 
   
 }

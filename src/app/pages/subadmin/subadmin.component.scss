@@ -63,3 +63,9 @@
 .mat-table {
     width: 100%;
 }
+
+.filter-field {
+    .mat-form-field {
+        width: 240px;
+    }
+}

@@ -108,4 +108,38 @@
 
         
     }
+    .otherdetails-wrapper {
+        .other-title {
+            font-size: 16px;
+            font-weight: 500;
+            letter-spacing: 1px;
+        }
+        .sub-detail {
+            margin-bottom: 1.5rem;
+        }
+        address {
+            margin: 0;
+            span { display: block; }
+        }
+        .bank-details {
+            ul {
+                padding: 0;
+                li {
+                    margin-bottom: 0.5rem;
+                }
+                .bank-head-type {
+                    width: 165px;
+                    display: inline-block;
+                    vertical-align: top;
+                }
+                .detail {
+                    display: inline-block;
+                }
+            }
+            .spacer {
+                margin-right: 1rem;
+                display: inline-block;
+            }
+        }
+    }
 }

@@ -44,6 +44,7 @@
                     <!-- <li>Horoscope</li> -->
                 </ul>
             </div>
+            <div class="backdrop" [ngClass]="{'open': viewMenuBar, 'close': !viewMenuBar}" (click)="toggleMenuSlide();"></div>
         <!-- menu drawer end -->
 
         <!-- when user is not login start -->

@@ -13,7 +13,7 @@ import { AdminConfirmationModalComponent } from './admin-confirmation-modal/admi
 export class SubadminComponent implements OnInit {
 
   
-  displayedColumns: string[] = ['position', 'name', 'email', 'status', 'action'];
+  displayedColumns: string[] = ['position', 'name', 'email', 'mobile', 'action'];
   dataSource = new MatTableDataSource<any>();
 
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
@@ -28,21 +28,16 @@ export class SubadminComponent implements OnInit {
           "email": "bijendrasingh9146@gmail.com",
           "_id": "5f1d8528411bc60dbd09ddb3",
           "name": "Bijendra Swami",
-          "status": 'Active'
+          "contactNo": '8655568110',
+          "password": 'gghjg'
       },
       {
           "email": "bijendrasingh9146@gmail.com",
           "_id": "5f255bb36507cd5af86a4102",
           "name": "Bijendra123",
-          "status": 'Active'
+          "contactNo": '7021385449',
+          "password": 'gghjg'
       },
-      {
-
-          "email": "amitverma@gmail.com",
-          "_id": "5f255bb36507cd5af86a4103",
-          "name": "Amit Verma",
-          "status": 'Active'
-      }
   ];
     this.dataSource =  new MatTableDataSource(data);
     this.dataSource.paginator = this.paginator;

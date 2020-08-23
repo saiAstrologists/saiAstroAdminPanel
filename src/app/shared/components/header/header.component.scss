@@ -74,6 +74,7 @@
     .dropdown-menu {
         padding: 0;
         .dropdown-item {
+            cursor: pointer;
             padding: 0.5rem 1.5rem;
             &:hover, &:focus {
                 background-color: $primary;
@@ -91,4 +92,15 @@
         border-color: $primary;
         box-shadow: none;
     }
+}
+
+.backdrop {
+    background-color: rgba(0,0,0,.7);
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    &.open { display: block; }
+    &.close { display: none; }
 }

@@ -19,6 +19,9 @@
             height: 100%;
         }
     }
+    .login-col {
+        min-width: 445px;
+    }
 
     .form-field-wrapper {
         width: 250px;
@@ -71,6 +74,27 @@
     button {
         &:focus {
             outline: none   ;
+        }
+    }
+}
+
+// media query
+
+@media only screen and (max-width: 575px) {
+    .login-container {
+        .login-col {
+            min-width: auto;
+            max-width: 100%;
+            flex: 1;
+        }
+    }
+    .logo-view {
+        img { width: 200px; }
+    }
+
+    .mat-card {
+        .mat-card-title {
+            font-size: 20px;
         }
     }
 }

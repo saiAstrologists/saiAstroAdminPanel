@@ -2,7 +2,7 @@
     <div class="login-img-sec"></div>
     <div class="container">
        <div class="row justify-content-center align-items-center">
-        <div class="col-5">
+        <div class="col-5 login-col">
             <form [formGroup]="adminLogin">
                 <!-- (ngSubmit)="submitForm(adminLogin)" -->
                 <!-- (ngSubmit)="!viewForgetPswdSec ? loginUser(adminLogin): forgotPassword(adminLogin)" -->
@@ -11,7 +11,7 @@
                         <img src="assets/imgs/sai-logo.png" alt="" class="img-fluid" width="220px">
                     </div>
                     <mat-card-title class="text-center">
-                        <span>{{viewForgetPswdSec ? 'Forgot Password': 'Login'}}</span>
+                        <span>{{viewForgetPswdSec ? 'Forgot Password': viewResetPswdSec ? 'Reset Password': 'Login'}}</span>
                     </mat-card-title>
                     <!-- login section start -->
                     <div *ngIf="!(viewForgetPswdSec || viewResetPswdSec)">

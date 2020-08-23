@@ -1,6 +1,6 @@
 <div class="admin-form-wrapper">
 
-    <h2 class="text-center mb-5">{{title}} Admin Data</h2>
+    <h2 class="text-center mb-5">{{title}} Admin</h2>
 
     <form [formGroup]="adminForm" (ngSubmit)="submitForm(adminForm)">
         <div class="form-field-wrapper">
@@ -12,12 +12,26 @@
         </div>
         <div class="form-field-wrapper">
             <mat-form-field>
-                <mat-label>Email</mat-label>
-                <input matInput  formControlName="email">
+                <mat-label>Mobile No</mat-label>
+                <input matInput  formControlName="mobileNo" [maxLength]="mobileMaxLength">
+            </mat-form-field>
+            <app-errorcontrol-message [control]="adminForm.get('mobileNo')" [controlName]="'Mobile No'"></app-errorcontrol-message>
+        </div>
+        <div class="form-field-wrapper">
+            <mat-form-field>
+                <mat-label>Email Id</mat-label>
+                <input matInput  formControlName="email" type="text">
             </mat-form-field>
             <app-errorcontrol-message [control]="adminForm.get('email')" [controlName]="'Email Id'"></app-errorcontrol-message>
         </div>
         <div class="form-field-wrapper">
+            <mat-form-field>
+                <mat-label>Password</mat-label>
+                <input matInput  formControlName="password" type="password">
+            </mat-form-field>
+            <app-errorcontrol-message [control]="adminForm.get('password')" [controlName]="'Password'"></app-errorcontrol-message>
+        </div>
+        <!-- <div class="form-field-wrapper">
             <mat-form-field appearance="fill">
                 <mat-label>Status</mat-label>
                 <mat-select formControlName="status">
@@ -26,7 +40,7 @@
                 </mat-select>
               </mat-form-field>
               <app-errorcontrol-message [control]="adminForm.get('status')" [controlName]="'Staus'"></app-errorcontrol-message>
-        </div>      
+        </div>       -->
         <div class="text-center">
             <button type="submit" mat-raised-button color="accent" [disabled]="adminForm.invalid">Submit</button>
         </div>  
