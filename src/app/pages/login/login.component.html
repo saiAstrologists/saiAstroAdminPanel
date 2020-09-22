@@ -34,9 +34,9 @@
                             <app-errorcontrol-message [control]="adminLogin.get('password')" [controlName]="'Password'"></app-errorcontrol-message>
                         </div>
                         <div class="clearfix reset-frgt">
-                            <div class="float-left reset-pswd">
+                            <!-- <div class="float-left reset-pswd">
                                 <span (click)="resetPswdSec()">Reset ?</span>
-                            </div>
+                            </div> -->
                             <div class="float-right forgot-pswd">
                                 <span (click)="forgotPswdSec()">Forgot Password ?</span>
                             </div>
@@ -88,14 +88,14 @@
                                 <mat-icon>keyboard_arrow_left</mat-icon>
                               </button>
                         </div>
-                        <div class="form-field-wrapper">
+                        <!-- <div class="form-field-wrapper">
                             <mat-form-field >
                                 <mat-label>Mobile No</mat-label>
                                 <input matInput placeholder="" type="text" formControlName="resetMobileno" [maxLength]="mobileMax">
                                 <mat-icon matPrefix class="mr-2">phone</mat-icon>
                               </mat-form-field>
                               <app-errorcontrol-message [control]="adminLogin.get('resetMobileno')" [controlName]="'Mobile No'"></app-errorcontrol-message>
-                        </div>
+                        </div> -->
                         <div class="form-field-wrapper">
                             <mat-form-field >
                                 <mat-label>Password</mat-label>
@@ -114,11 +114,10 @@
                               <app-errorcontrol-message [control]="adminLogin.get('resetConfirmPassword')" [controlName]="'Confirm Password'"></app-errorcontrol-message>
                         </div>
                         <div class="mt-5 text-center">
-                            <button type="button" mat-raised-button color="accent" (click)="setResetPassword(adminLogin)" [disabled]="adminLogin.invalid">{{isOtpFill ? 'Verify' : 'Get'}} OTP</button>
+                            <button type="button" mat-raised-button color="accent" (click)="setResetPassword(adminLogin)" [disabled]="adminLogin.invalid">Reset Password</button>
                         </div>
                     </div>
-                    <!-- reset password section end -->
-                    
+                    <!-- reset password section end -->                    
                 </mat-card>    
             </form>
             

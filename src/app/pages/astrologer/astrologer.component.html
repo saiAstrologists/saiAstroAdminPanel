@@ -23,33 +23,41 @@
               <!-- Position Column -->
               <ng-container matColumnDef="position">
                 <th mat-header-cell *matHeaderCellDef> No. </th>
-                <td mat-cell *matCellDef="let element; let i = index"> {{i+1}} </td>
+                <td mat-cell *matCellDef="let element; let i = index" data-label="No."> {{i+1}} </td>
               </ng-container>
         
               <!-- Name Column -->
               <ng-container matColumnDef="name">
                 <th mat-header-cell *matHeaderCellDef> Name </th>
-                <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+                <td mat-cell *matCellDef="let element" data-label="Name"> {{element.name}} </td>
               </ng-container>
           
               <!-- Email Column -->
               <ng-container matColumnDef="email">
                 <th mat-header-cell *matHeaderCellDef> Email </th>
-                <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+                <td mat-cell *matCellDef="let element" data-label="Email"> {{element.email}} </td>
+              </ng-container>
+
+              <!-- Mobile Column -->
+              <ng-container matColumnDef="mobile">
+                <th mat-header-cell *matHeaderCellDef> Mobile No </th>
+                <td mat-cell *matCellDef="let element" data-label="Mobile No"> {{element.contactNo}} </td>
               </ng-container>
           
               <!-- Status Column -->
               <ng-container matColumnDef="status">
                 <th mat-header-cell *matHeaderCellDef> Status </th>
-                <td mat-cell *matCellDef="let element; let i = index">
+                <td mat-cell *matCellDef="let element; let row; let i = index" data-label="Status">
                   <!-- if status is not pending then show -->
-                  <span *ngIf="element.status != 'Pending' && !element.isDropdown">{{element.status}}</span>
+                  <!-- <span *ngIf="element.isApplicationAccepted   && !element.isDropdown">{{element.isApplicationAccepted ? 'Approved' : ''}}</span> -->
                   <!-- {{selectedValue'+'i"}} -->
+
                   <!-- if status is pending then show dropdown -->
-                  <div class="select-status" *ngIf="element.status == 'Pending' || element.isDropdown ">
+                  <div class="select-status" >
+                    <!-- *ngIf="element.isApplicationAccepted == null || element.isDropdown " -->
                     <mat-form-field appearance="fill">
                       <mat-label>Status</mat-label>
-                      <mat-select (selectionChange)="statusChange($event, i)">
+                      <mat-select (selectionChange)="statusChange($event, i, row)" value="{{element.isApplicationAccepted == null  ? null : element.isApplicationAccepted ? 'Approve': 'Reject'}}">
                         <mat-option *ngFor="let statusType of statusTypeList" [value]="statusType.name">
                           {{statusType.name}}
                         </mat-option>
@@ -62,7 +70,7 @@
               <!-- Action Column -->
                <ng-container matColumnDef="action">
                 <th mat-header-cell *matHeaderCellDef> Action </th>
-                <td mat-cell *matCellDef="let element; let row">
+                <td mat-cell *matCellDef="let element; let row" data-label="Action">
                   <button mat-raised-button color="accent" (click)="viewProfile(row)">View Profile</button>
                 </td>
                </ng-container>

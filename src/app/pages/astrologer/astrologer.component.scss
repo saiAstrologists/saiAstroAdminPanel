@@ -75,3 +75,77 @@
         }
     }
 }
+
+
+// media query
+
+@media only screen and (max-width: 991px) {
+    .astrologer-wrapper {
+        .mat-elevation-z8 {
+            .mat-table {
+                background-color: transparent;
+            }
+            .mat-header-row {
+                display: none;
+            }
+            .mat-row {
+                height: 100%;
+                margin: 0 0 10px;
+                display: block;
+                background-color: $color-white;
+                &:hover {
+                    background-color: $color-white;
+                }
+            }
+            td.mat-cell {
+                padding: 10px;
+                display: block;
+                text-align: right;
+                &::before {
+                    content: attr(data-label);
+                    float: left;
+                    font-weight: 700;
+                    font-size: 16px;
+                }
+                &[data-label="Status"] {
+                    padding: 10px 10px 0;
+                }
+            }
+        }
+        .filter-field {
+            margin: 15px 0 0;
+        }
+        
+    }
+}
+
+@media only screen and (max-width: 767px){
+    .astro-wrapper {
+        .page-title {
+            h2 {
+                font-size: 18px;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 575px){
+    .astro-wrapper {
+        .page-title {
+            h2 {
+                font-size: 16px;
+            }
+        }
+    }
+
+    .astrologer-wrapper {
+        padding-bottom: 20px;
+        .filter-field {
+            width: 100%;
+            .mat-form-field {
+                width: 100%;
+            }
+        }
+    }
+    
+}

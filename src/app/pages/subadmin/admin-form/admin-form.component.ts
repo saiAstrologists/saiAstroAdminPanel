@@ -26,7 +26,7 @@ export class AdminFormComponent implements OnInit {
       name: new FormControl('', [Validators.required]),
       email: new FormControl('',[Validators.required, ValidationService.emailValidation]),
       // status: new FormControl('', Validators.required),
-      mobileNo: new FormControl('', [Validators.required, ValidationService.mobileNoValidation]),
+      contactNo: new FormControl('', [Validators.required, ValidationService.mobileNoValidation]),
       password: new FormControl('', [Validators.required, ValidationService.passwordValidation]),
       _id: new FormControl('')
     });
@@ -39,10 +39,12 @@ export class AdminFormComponent implements OnInit {
         this.adminForm.patchValue({
           name: this.modalData.adminData.name,
           email: this.modalData.adminData.email,
-          password: this.modalData.adminData.password,
           _id: this.modalData.adminData._id,
-          mobileNo: this.modalData.adminData.contactNo,
-        })
+          contactNo: this.modalData.adminData.contactNo,
+        });
+
+        this.adminForm.get('password').setValidators([ValidationService.passwordValidation]);
+        this.adminForm.get('password').updateValueAndValidity();
       }
     }
 
@@ -69,7 +71,7 @@ export class AdminFormComponent implements OnInit {
 
       let reqData = {
         name: formData.value.name,
-        contactNo: formData.value.mobileNo,
+        contactNo: formData.value.contactNo,
         email: formData.value.email,
         password: formData.value.password
       }
@@ -77,13 +79,40 @@ export class AdminFormComponent implements OnInit {
         if(response && response.data){          
             let data = {
               type: this.modalData.modelType,
-              data: formData.value
+              data: {
+                name: response.data.name,
+                contactNo: response.data.contactNo,
+                email: response.data.email,
+                password: response.data.password,
+                _id: response.data._id
+              }
             }
             console.log(formData, 'formData');
             this.dialogRef.close(data);
         }
       })
 
+    }
+  }
+
+  updateForm(formData){
+    if(formData.valid){
+      let reqData = {
+        id: formData.value._id,
+        email: formData.value.email,
+        name: formData.value.name,
+        contactNo: formData.value.contactNo
+      }
+
+      this.subAdminService.updateAdminData(reqData).subscribe(response => {
+        if(response && response.data) {
+          let data = {
+            type: this.modalData.modelType,
+            data: formData.value
+          }
+          this.dialogRef.close(data);
+        }
+      })
     }
   }
   

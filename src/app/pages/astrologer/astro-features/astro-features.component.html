@@ -1,0 +1,171 @@
+<div class="astro-feature-wrapper">
+    <div class="container">
+        <div class="page-title">        
+            <h2 class="font-muli"><mat-icon>settings</mat-icon> <span routerLink="/dashboard">Dashboard</span> / <span routerLink="/astrologer">Astrologer</span>  / <span>Features</span></h2>
+        </div>
+        <div class="features-wrapper">
+            <div class="features-section">
+                <form [formGroup]="featuresForm">
+                    <!-- calls group -->
+                    <div class="rating-section">
+                        <h3>Calls</h3>
+                        <div  formGroupName="callRates" class="row">
+                            <div class="col-4">
+                                <div class="feature-holder">
+                                    <div class="checkbox-holder">
+                                        <mat-checkbox class="" formControlName="callIndiaStatus">{{featuresForm.controls.callRates.get('callIndiaStatus').value ? 'Enabled': 'Disabled'}}</mat-checkbox>
+                                    </div>
+                                    <mat-form-field appearance="legacy">
+                                        <mat-label>India Call Rates</mat-label>
+                                        <input matInput type="text" formControlName="callIndia">
+                                      </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="feature-holder">
+                                    <div class="checkbox-holder">
+                                        <mat-checkbox class="" formControlName="callUsaStatus">Enable</mat-checkbox>
+                                    </div>
+                                    <mat-form-field appearance="legacy">
+                                        <mat-label>Usa Call Rates</mat-label>
+                                        <input matInput type="text" formControlName="callUsa">
+                                      </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="feature-holder">
+                                    <div class="checkbox-holder">
+                                        <mat-checkbox class="" formControlName="callTaiwanStatus">Enable</mat-checkbox>
+                                    </div>
+                                    <mat-form-field appearance="legacy">
+                                        <mat-label>Taiwan Call Rates</mat-label>
+                                        <input matInput type="text" formControlName="callTaiwan">
+                                      </mat-form-field>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- chat group -->
+                   <div class="rating-section">
+                       <h3>Chat</h3>
+                       <div  formGroupName="chatRates" class="row">
+                        <div class="col-4">
+                            <div class="feature-holder">
+                                <div class="checkbox-holder">
+                                    <mat-checkbox class="" formControlName="chatIndiaStatus">Enable</mat-checkbox>
+                                </div>
+                                <mat-form-field appearance="legacy">
+                                    <mat-label>India Chat Rates</mat-label>
+                                    <input matInput type="text" formControlName="chatIndia">
+                                  </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="feature-holder">
+                                <div class="checkbox-holder">
+                                    <mat-checkbox class="" formControlName="chatUsaStatus">Enable</mat-checkbox>
+                                </div>
+                                <mat-form-field appearance="legacy">
+                                    <mat-label>Usa Chat Rates</mat-label>
+                                    <input matInput type="text" formControlName="chatUsa">
+                                  </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="feature-holder">
+                                <div class="checkbox-holder">
+                                    <mat-checkbox class="" formControlName="chatTaiwanStatus">Enable</mat-checkbox>
+                                </div>
+                                <mat-form-field appearance="legacy">
+                                    <mat-label>Taiwan Chat Rates</mat-label>
+                                    <input matInput type="text" formControlName="chatTaiwan">
+                                  </mat-form-field>
+                            </div>
+                        </div>
+                    </div>
+                   </div>
+                    <!-- Report rates -->
+                    <div class="rating-section">
+                        <h3>Reports</h3>
+                        <div  formGroupName="reportRates" class="row">
+                            <div class="col-4">
+                                <div class="feature-holder">
+                                    <div class="checkbox-holder">
+                                        <mat-checkbox class="" formControlName="reportIndiaStatus">Enable</mat-checkbox>
+                                    </div>
+                                    <mat-form-field appearance="legacy">
+                                        <mat-label>India Report Rates</mat-label>
+                                        <input matInput type="text" formControlName="reportIndia">
+                                      </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="feature-holder">
+                                    <div class="checkbox-holder">
+                                        <mat-checkbox class="" formControlName="reportUsaStatus">Enable</mat-checkbox>
+                                    </div>
+                                    <mat-form-field appearance="legacy">
+                                        <mat-label>Usa Report Rates</mat-label>
+                                        <input matInput type="text" formControlName="reportUsa">
+                                      </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="feature-holder">
+                                    <div class="checkbox-holder">
+                                        <mat-checkbox class="" formControlName="reportTaiwanStatus">Enable</mat-checkbox>
+                                    </div>
+                                    <mat-form-field appearance="legacy">
+                                        <mat-label>Taiwan Report Rates</mat-label>
+                                        <input matInput type="text" formControlName="reportTaiwan">
+                                      </mat-form-field>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- question answer rates -->
+                    <div class="rating-section">
+                        <h3>Question & Answers</h3>
+                        <div  formGroupName="qaRates" class="row">
+                            <div class="col-4">
+                                <div class="feature-holder">
+                                    <div class="checkbox-holder">
+                                        <mat-checkbox class="" formControlName="qaIndiaStatus">Enable</mat-checkbox>
+                                    </div>
+                                    <mat-form-field appearance="legacy">
+                                        <mat-label>India QA Rates</mat-label>
+                                        <input matInput type="text" formControlName="qaIndia">
+                                      </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="feature-holder">
+                                    <div class="checkbox-holder">
+                                        <mat-checkbox class="" formControlName="qaUsaStatus">Enable</mat-checkbox>
+                                    </div>
+                                    <mat-form-field appearance="legacy">
+                                        <mat-label>Usa QA Rates</mat-label>
+                                        <input matInput type="text" formControlName="qaUsa">
+                                      </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="feature-holder">
+                                    <div class="checkbox-holder">
+                                        <mat-checkbox class="" formControlName="qaTaiwanStatus">Enable</mat-checkbox>
+                                    </div>
+                                    <mat-form-field appearance="legacy">
+                                        <mat-label>Taiwan QA Rates</mat-label>
+                                        <input matInput type="text" formControlName="qaTaiwan">
+                                      </mat-form-field>
+                                </div>
+                            </div>
+                        </div>
+                    </div>                    
+                </form>
+                
+            </div>
+        </div>
+    </div>
+</div>

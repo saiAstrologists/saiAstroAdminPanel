@@ -14,6 +14,14 @@ export class AstrologerService {
 
 
   getAstrologers(): Observable<any>{
-    return this.restService.get(ResturlService.astrologerList);
+    return this.restService.create(ResturlService.astrologerList, null);
+  }
+
+  getAstrologerProfile(data): Observable<any> {
+    return this.restService.create(ResturlService.astrologerDetail+'/'+data, null)
+  }
+
+  acceptRejectApp(data): Observable<any> {
+    return this.restService.create(ResturlService.appectRejectAppltn, data);
   }
 }

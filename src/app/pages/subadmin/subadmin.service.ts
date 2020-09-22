@@ -16,4 +16,16 @@ export class SubadminService {
   createAdmin(data): Observable<any>{
     return this.restService.create(ResturlService.createAdmin, data);
   }
+
+  getAdmin(): Observable<any> {
+    return this.restService.create(ResturlService.adminList, null);
+  }
+
+  updateAdminData(data): Observable<any>{
+    return this.restService.create(ResturlService.updateAdmin, data);
+  }
+
+  deleteAdmin(data): Observable<any> {
+    return this.restService.create(ResturlService.deleteAdminData, data);
+  }
 }

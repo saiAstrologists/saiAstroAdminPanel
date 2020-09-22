@@ -4,6 +4,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatDialog } from '@angular/material/dialog';
 import { AdminFormComponent } from './admin-form/admin-form.component';
 import { AdminConfirmationModalComponent } from './admin-confirmation-modal/admin-confirmation-modal.component';
+import { SubadminService } from './subadmin.service';
 
 @Component({
   selector: 'app-subadmin',
@@ -19,28 +20,30 @@ export class SubadminComponent implements OnInit {
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
 
   constructor(
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private subAdminService: SubadminService
   ) { }
 
   ngOnInit(): void {
-    let data = [
-      {
-          "email": "bijendrasingh9146@gmail.com",
-          "_id": "5f1d8528411bc60dbd09ddb3",
-          "name": "Bijendra Swami",
-          "contactNo": '8655568110',
-          "password": 'gghjg'
-      },
-      {
-          "email": "bijendrasingh9146@gmail.com",
-          "_id": "5f255bb36507cd5af86a4102",
-          "name": "Bijendra123",
-          "contactNo": '7021385449',
-          "password": 'gghjg'
-      },
-  ];
-    this.dataSource =  new MatTableDataSource(data);
-    this.dataSource.paginator = this.paginator;
+
+    this.getAdminList();
+  //   let data = [
+  //     {
+  //         "email": "bijendrasingh9146@gmail.com",
+  //         "_id": "5f1d8528411bc60dbd09ddb3",
+  //         "name": "Bijendra Swami",
+  //         "contactNo": '8655568110',
+  //         "password": 'gghjg'
+  //     },
+  //     {
+  //         "email": "bijendrasingh9146@gmail.com",
+  //         "_id": "5f255bb36507cd5af86a4102",
+  //         "name": "Bijendra123",
+  //         "contactNo": '7021385449',
+  //         "password": 'gghjg'
+  //     },
+  // ];
+    
   }
 
 
@@ -59,7 +62,7 @@ export class SubadminComponent implements OnInit {
       "email": addData.email,
       "_id": addData._id,
       "name": addData.name,
-      "status": addData.status,
+      "contactNo": addData.contactNo,
   });
 
   // this.dataSource = new MatTableDataSource(this.dataSource.data);
@@ -74,8 +77,18 @@ export class SubadminComponent implements OnInit {
 
     dialogConfirmation.afterClosed().subscribe(confirmationModalResponse => {
       if(confirmationModalResponse == 'yes') {
-        this.dataSource.data.splice(index,1);
-        this.dataSource.filter = "";
+
+        if(rowData._id){
+          let reqData = {
+            adminId: rowData._id
+          }
+          this.subAdminService.deleteAdmin(reqData).subscribe(response => {
+            console.log(response, 'response');
+            this.dataSource.data.splice(index,1);
+            this.dataSource.filter = "";
+          });
+        }     
+        
       }else {
         
       }
@@ -89,7 +102,7 @@ export class SubadminComponent implements OnInit {
       if(list._id == rowData._id) {
         list.name =  rowData.name;
         list.email = rowData.email;
-        list.status = rowData.status;
+        list.contactNo = rowData.contactNo;
       }
     });
 
@@ -115,6 +128,17 @@ export class SubadminComponent implements OnInit {
         }
       }
     });
+  }
+
+
+  getAdminList(){
+    this.subAdminService.getAdmin().subscribe(response => {
+      if(response && response.data){
+        console.log(response, 'response');
+        this.dataSource =  new MatTableDataSource(response.data);
+        this.dataSource.paginator = this.paginator; 
+      }
+    })
   }
 
 }

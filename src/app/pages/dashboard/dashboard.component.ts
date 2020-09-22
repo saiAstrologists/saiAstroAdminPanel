@@ -23,6 +23,7 @@ export class DashboardComponent implements OnInit {
     }else {
       this.isMasterAdmin = false;
     }
+
   }
 
 

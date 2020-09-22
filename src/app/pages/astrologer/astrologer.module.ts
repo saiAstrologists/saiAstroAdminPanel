@@ -6,17 +6,20 @@ import { AstrologerComponent } from './astrologer.component';
 import { SharedModuleModule } from '../../shared-module.module';
 import { AstrologerProfileComponent } from './astrologer-profile/astrologer-profile.component';
 import { ConfirmationModalComponent } from './confirmation-modal/confirmation-modal.component';
+import { DocumentSliderComponent } from './document-slider/document-slider.component';
+import { AstroFeaturesComponent } from './astro-features/astro-features.component';
 
 
 @NgModule({
-  declarations: [AstrologerComponent, AstrologerProfileComponent, ConfirmationModalComponent],
+  declarations: [AstrologerComponent, AstrologerProfileComponent, ConfirmationModalComponent, DocumentSliderComponent, AstroFeaturesComponent],
   imports: [
     CommonModule,
     SharedModuleModule,
     AstrologerRoutingModule,
   ],
   exports: [
-    ConfirmationModalComponent
+    ConfirmationModalComponent,
+    DocumentSliderComponent
   ]
 })
 export class AstrologerModule { }

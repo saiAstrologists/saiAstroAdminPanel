@@ -13,10 +13,15 @@ export class ResturlService {
   public static get resetPassword(): string { return '/resetPassword'; }
 
   // astrologer
-  public static get astrologerList(): string {return '/users/getastrologerslist'; }
+  public static get astrologerList(): string {return '/listOfAstrologers'; }
+  public static get astrologerDetail(): string {return '/getastrologerdetails'; }
+  public static get appectRejectAppltn(): string {return '/acceptApplication'; }
 
   // admin
   public static get createAdmin(): string { return '/create'; }
+  public static get adminList(): string { return '/listofadmin'; }
+  public static get updateAdmin(): string { return '/updateadmin'; }
+  public static get deleteAdminData(): string { return '/deleteAdmin'; }
 
   
 }

@@ -48,10 +48,12 @@
     position: fixed; 
     top: 0;
     left: 0;
-    padding: 10px 0;
-    z-index: 11111;
+    z-index: 111;
     background-color: $color-white;
     box-shadow: 0 1px 2px #d7d7d7;
+    &.padding {
+        padding: 10px 0;
+    }
 }
 
 .logo-ham-sec {
@@ -103,4 +105,26 @@
     bottom: 0;
     &.open { display: block; }
     &.close { display: none; }
+}
+
+
+// media query
+
+@media only screen and (max-width: 575px) {
+    .logo-ham-sec {
+        .logo {
+            margin-left: 5px;
+            img {
+                width: 130px;
+            }
+        }
+    }
+
+    .user-profile {
+        .dropdown {
+            .btn-secondary {
+                font-size: 13px;
+            }
+        }
+    }
 }

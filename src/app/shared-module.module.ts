@@ -23,6 +23,7 @@ import {MatTabsModule} from '@angular/material/tabs';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ErrorcontrolMessageComponent } from './shared/components/errorcontrol-message/errorcontrol-message.component';
 import { HttpClientModule } from '@angular/common/http';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 
 
@@ -51,6 +52,7 @@ import { HttpClientModule } from '@angular/common/http';
      MatDialogModule,
      MatPaginatorModule,
      ReactiveFormsModule,
+    MatSnackBarModule,
      FormsModule,
      HttpClientModule,
   ],
@@ -75,7 +77,8 @@ import { HttpClientModule } from '@angular/common/http';
      FormsModule,
      HeaderComponent,
      ErrorcontrolMessageComponent,
-     HttpClientModule
+     HttpClientModule,
+     MatSnackBarModule,
 
   ]
 })

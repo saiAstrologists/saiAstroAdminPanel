@@ -49,6 +49,8 @@ export class LoginComponent implements OnInit {
     this.adminLogin.reset();
 
     if(this.viewForgetPswdSec) {
+      this.adminLogin.get('otp').disable();
+
       this.adminLogin.get('username').setValidators([]);
       this.adminLogin.get('password').setValidators([]);
       this.adminLogin.get('forgotMobileno').setValidators([Validators.required, ValidationService.mobileNoValidation]);
@@ -69,7 +71,12 @@ export class LoginComponent implements OnInit {
   resetPswdSec(){
     this.viewResetPswdSec = !this.viewResetPswdSec;
     
-    this.adminLogin.reset();
+    // this.adminLogin.reset();
+    this.adminLogin.get('username').reset();
+    this.adminLogin.get('password').reset();
+    // this.adminLogin.get('resetMobileno').reset();
+    this.adminLogin.get('resetPassword').reset();
+    this.adminLogin.get('resetConfirmPassword').reset();
 
     if(this.viewResetPswdSec){
       this.adminLogin.get('username').setValidators([]);
@@ -105,8 +112,14 @@ export class LoginComponent implements OnInit {
 
       this.loginService.loginUser(data).subscribe(response => {
         console.log(response, 'response'); 
+
+        // if(response.message != ''){
+        //   this.commonService.viewToaster(response.message);
+        // }
+
         if(response && response.data && response.data.token){
           sessionStorage.setItem('token', response.data.token);
+          sessionStorage.setItem('user_role', JSON.stringify(response.data.userData))
 
           if(response.data.userData && response.data.userData.userType == AdminType.masterAdmin){
             sessionStorage.setItem('adminType', 'master');
@@ -154,6 +167,14 @@ export class LoginComponent implements OnInit {
       this.loginService.verifyMobotp(reqData).subscribe(response => {
         if(response && response.status == 200){
           console.log('verified');
+          this.viewForgetPswdSec = false;
+
+          // patch value
+          this.adminLogin.patchValue({
+            resetMobileno: formData.value.forgotMobileno
+          });
+
+          this.resetPswdSec();
         }
       })
     }
@@ -187,7 +208,8 @@ export class LoginComponent implements OnInit {
 
       this.loginService.resetLoginPassword(reqData).subscribe(response => {
         if(response && response.status == 200){
-
+          this.viewResetPswdSec = true;
+          this.resetPswdSec();
         }
       })
 

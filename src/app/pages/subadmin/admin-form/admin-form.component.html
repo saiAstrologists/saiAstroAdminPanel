@@ -2,7 +2,7 @@
 
     <h2 class="text-center mb-5">{{title}} Admin</h2>
 
-    <form [formGroup]="adminForm" (ngSubmit)="submitForm(adminForm)">
+    <form [formGroup]="adminForm" (ngSubmit)="modalData.modelType == 'add' ? submitForm(adminForm): updateForm(adminForm)">
         <div class="form-field-wrapper">
             <mat-form-field>
                 <mat-label>Name</mat-label>
@@ -13,9 +13,9 @@
         <div class="form-field-wrapper">
             <mat-form-field>
                 <mat-label>Mobile No</mat-label>
-                <input matInput  formControlName="mobileNo" [maxLength]="mobileMaxLength">
+                <input matInput  formControlName="contactNo" [maxLength]="mobileMaxLength">
             </mat-form-field>
-            <app-errorcontrol-message [control]="adminForm.get('mobileNo')" [controlName]="'Mobile No'"></app-errorcontrol-message>
+            <app-errorcontrol-message [control]="adminForm.get('contactNo')" [controlName]="'Mobile No'"></app-errorcontrol-message>
         </div>
         <div class="form-field-wrapper">
             <mat-form-field>
@@ -24,7 +24,7 @@
             </mat-form-field>
             <app-errorcontrol-message [control]="adminForm.get('email')" [controlName]="'Email Id'"></app-errorcontrol-message>
         </div>
-        <div class="form-field-wrapper">
+        <div class="form-field-wrapper" *ngIf="modalData.modelType == 'add'">
             <mat-form-field>
                 <mat-label>Password</mat-label>
                 <input matInput  formControlName="password" type="password">
@@ -42,7 +42,7 @@
               <app-errorcontrol-message [control]="adminForm.get('status')" [controlName]="'Staus'"></app-errorcontrol-message>
         </div>       -->
         <div class="text-center">
-            <button type="submit" mat-raised-button color="accent" [disabled]="adminForm.invalid">Submit</button>
+            <button type="submit" mat-raised-button color="accent" [disabled]="adminForm.invalid">{{modalData.modelType == 'add' ? 'Create': 'Update'}}</button>
         </div>  
     </form>
 </div>

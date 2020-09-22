@@ -49,8 +49,9 @@
         padding: 1.5rem 2rem;
         border-bottom: 1px solid #c6c6c6;
         .profile-img-holder {
-            width: 200px;
-            height: 200px;
+            background-color: $bg-grey;
+            width: 180px;
+            height: 180px;
             border-radius: 100%;
             margin: 0 auto;
             overflow: hidden;
@@ -71,6 +72,7 @@
         padding: 1.5rem 2rem;
         .detail-list {
             margin: 0 0 1rem;
+            &:last-child { margin: 0; }
         }
         .lang-list {
             span {
@@ -139,6 +141,36 @@
             .spacer {
                 margin-right: 1rem;
                 display: inline-block;
+            }
+        }
+    }
+}
+
+.documents-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    .document-list {
+        width: 200px; 
+        margin-right: 20px;
+    }
+}
+
+
+@media only screen and (max-width: 767px){
+    .astro-profile-wrapper {
+        .page-title {
+            h2 {
+                font-size: 18px;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 575px){
+    .astro-profile-wrapper {
+        .page-title {
+            h2 {
+                font-size: 16px;
             }
         }
     }

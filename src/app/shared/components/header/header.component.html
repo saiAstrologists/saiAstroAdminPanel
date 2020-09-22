@@ -1,4 +1,4 @@
-<div class="header-wrapper">
+<div class="header-wrapper" [ngClass]="{'padding': isUserLogin}">
     <div class="container-fluid">
         <div class="clearfix"  *ngIf="isUserLogin">
             <div class="float-left">
@@ -40,7 +40,7 @@
                     <li >Profile <mat-icon>person</mat-icon></li>
                     <li (click)="openPage('/dashboard')">Dashboard <mat-icon>home</mat-icon></li>
                     <li (click)="openPage('/astrologer')">Astrologer <mat-icon>list</mat-icon></li>
-                    <li *ngIf="isMasterAdmin" (click)="openPage('/sub-admin')">Admin Control <mat-icon>admin_panel_settings</mat-icon></li>
+                    <li *ngIf="isMasterAdmin" (click)="openPage('/subadmin')">Admin Control <mat-icon>admin_panel_settings</mat-icon></li>
                     <!-- <li>Horoscope</li> -->
                 </ul>
             </div>

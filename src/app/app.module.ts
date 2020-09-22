@@ -8,16 +8,20 @@ import { SharedModuleModule } from './shared-module.module';
 import { AuthGuardService } from './shared/services/authentication/auth-guard.service';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HttpInterInterceptor } from './shared/services/http/http-inter.interceptor';
+import { NgxSpinnerModule } from "ngx-spinner";
+import { LoaderComponent } from './shared/components/loader/loader.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LoaderComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     SharedModuleModule,
+    NgxSpinnerModule,
   ],
   providers: [
     AuthGuardService,
@@ -25,7 +29,7 @@ import { HttpInterInterceptor } from './shared/services/http/http-inter.intercep
       provide: HTTP_INTERCEPTORS,
       useClass: HttpInterInterceptor,
       multi: true
-    }
+    },
   ],
   bootstrap: [AppComponent]
 })

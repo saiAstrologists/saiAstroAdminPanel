@@ -5,54 +5,80 @@
         </div>
         <div class="profile-container">
             <div class="row">
-                <div class="col-5">
+                <div class="col-xl-5 col-lg-5 col-md-12 mb-4">
                     <div class="profile-wrapper">
                        <div class="profile-heading">
                             <div class="profile-img-holder">
-                                <img src="assets/imgs/profile.jpg" alt="" class="img-fluid">
+                                <img src="{{astrologerData?.personalDetails?.profilePic}}" alt="" class="img-fluid">
                             </div>
-                            <h3 class="heading-name">Amit Verma <mat-icon>verified</mat-icon></h3>
+                            <h3 class="heading-name">{{astrologerData?.name}}<mat-icon class="ml-2" *ngIf="astrologerData?.isApplicationAccepted">verified</mat-icon></h3>
                        </div>
                        <div class="profile-details">
                            <!-- Email info -->
-                           <div class="detail-list row">
+                           <div class="detail-list row" *ngIf="astrologerData?.email">
                                <div class="col-2">                                 
                                   <mat-icon>email</mat-icon>
                                </div>
                                <div class="col-10 p-0">                                 
-                                  <span>amitverma@gmail.com</span>
+                                  <span>{{astrologerData?.email}}</span>
                                </div>
                            </div>
                            <!-- Phone info -->
-                           <div class="detail-list row">
+                           <div class="detail-list row" *ngIf="astrologerData?.contactNo">
                                <div class="col-2">                                  
                                   <mat-icon>phone</mat-icon>
                                </div>
                                <div class="col-10 p-0">
-                                  <span>+918655568110</span>
+                                  <span>{{astrologerData?.contactNo}}</span>
+                               </div>
+                           </div>
+
+                           <!-- date of birth -->
+                           <div class="detail-list row" *ngIf="astrologerData?.personalDetails?.dob">
+                               <div class="col-2">                                  
+                                  <mat-icon>today</mat-icon>
+                               </div>
+                               <div class="col-10 p-0">
+                                  <span>{{astrologerData?.personalDetails?.dob}}</span>
+                               </div>
+                           </div>
+
+                           <!-- location info -->
+                           <div class="detail-list row" *ngIf="astrologerData?.personalDetails?.city">
+                               <div class="col-2">                                  
+                                  <mat-icon>location_on</mat-icon>
+                               </div>
+                               <div class="col-10 p-0">
+                                  <span>{{astrologerData?.personalDetails?.city}}, {{astrologerData?.personalDetails?.country}}</span>
                                </div>
                            </div>
                            <!-- language info -->
-                           <div class="detail-list row">
+                           <div class="detail-list row" *ngIf="astrologerData?.personalDetails?.language.length">
                                <div class="col-2">
                                   <mat-icon>language</mat-icon>
                                </div>
                                <div class="col-10 p-0">
                                 <div class="lang-list">
-                                    <span>English</span>,
-                                    <span>Hindi</span>
+                                    <span *ngFor="let lang of astrologerData?.personalDetails?.language">
+                                        {{lang}} 
+                                        <!-- <span>,</span> -->
+                                    </span>
                                    </div>
                                </div>                                
                            </div>
     
                            <!-- skills info -->
-                           <div class="detail-list row">
+                           <div class="detail-list row" *ngIf="astrologerData?.personalDetails?.skills.length">
                                <div class="col-2">
                                    <mat-icon>layers</mat-icon>
                                </div>
                                <div class="col-10 p-0">
                                     <div class="skill-list">
-                                        <span>Vedic Astrology</span>, <span>Vasthu</span>, <span>Gemology</span>, <span>Prashana Astrology</span>, <span>Horary</span>
+                                        <span *ngFor="let skill of astrologerData?.personalDetails?.skills">
+                                            {{skill}} 
+                                            <!-- <span>,</span> -->
+                                        </span>
+                                        <!-- <span>Vedic Astrology</span>, <span>Vasthu</span>, <span>Gemology</span>, <span>Prashana Astrology</span>, <span>Horary</span> -->
                                     </div>
                                </div>
                                
@@ -60,35 +86,40 @@
                        </div>
                     </div>
                 </div>
-                <div class="col-7">
+                <div class="col-xl-7 col-lg-7 col-md-12 mb-4">
                     <div class="profile-all-details">
                         <mat-tab-group mat-align-tabs="start">
                             <!-- about me  -->
                             <mat-tab label="About Me">
                                 <div class="about-me">
-                                    <p>Abhilash Raghavendra is a renowned Astrologer with an experience of more than 19 years in the field of Astrology. He is an expert of Vedic Astrology, Vasthu, Gemology and Prashana Astrology. He strongly believes that Astrology is a tool that reveals many aspects of our character and destiny. Moreover, it gives us an insight of the likely outcome of our actions and barriers we face and helps us to attain better results. Talking about his educational qualifications, he has completed his Jyotishya Acharya from Maharshi College of Vedic Astrology. Despite being a famed Astrologer, working for the benefit of the people always remained his first priority and he has been doing this from the last 18 years. Apart from being a specialist of predictions, he is also an expert of Remedial Astrology who believes in providing custom remedies to improve the stability of his customers and provide them with the best possible outcome. Besides this, you can also contact him regarding Gemstone Consultation, Marriage Consultation, Love and Relationship, Carrer Issues, Health Issues or any such issue that is blocking your way.</p>
+                                    <p>{{astrologerData?.personalDetails?.longBio}}</p>
+                                    <p>{{astrologerData?.personalDetails?.shortBio}}</p>
+                                    <!-- no data -->
+                                    <p class="text-center" *ngIf="(astrologerData?.personalDetails?.longBio == '' && astrologerData?.personalDetails?.shortBio == '' )">No Data Found</p>
                                 </div>
                             </mat-tab>
-                            <!-- certificates -->
-                            <mat-tab label="Certificates">
-                                <div class="certificate-wrapper">
-                                    Coming soon
+                            <!-- Document -->
+                            <mat-tab label="Documents">
+                                <div class="documents-wrapper">
+                                    <div class="document-list" *ngFor="let doc of astrologerData?.personalDetails?.documents; let i = index">
+                                        <img src="{{doc}}" alt="" class="img-fluid" (click)="viewDocuments(i)">
+                                    </div>
                                 </div>
                             </mat-tab>
                             <!-- other details -->
-                            <mat-tab label="Other Details">
+                            <mat-tab label="Other Details" >
                                 <div class="otherdetails-wrapper">
                                      <!-- address detail -->
-                                     <div class="sub-detail">
+                                     <div class="sub-detail" *ngIf="(astrologerData?.personalDetails?.address | json) != ({} | json) ">
                                         <address>
                                             <h4 class="other-title">Address</h4>
-                                            <span>Christian Village, Near Phoenix Market City</span>
-                                            <span>Kurla, 400070</span>
-                                            <span>Mumbai, Maharashtra, India</span>
+                                            <span>{{astrologerData?.personalDetails?.address?.primary}}</span>
+                                            <span>{{astrologerData?.personalDetails?.address?.pinCode}}</span>
+                                            <span>{{astrologerData?.personalDetails?.address?.state}}</span>
                                         </address>
                                      </div>
                                      <!-- bank details -->
-                                     <div class="sub-detail">
+                                     <div class="sub-detail"  *ngIf="(astrologerData?.personalDetails?.bankAccDetails | json) != ({} | json) ">
                                          <div class="bank-details">
                                             <h4 class="other-title">Bank Details</h4>
                                             <ul>
@@ -98,7 +129,7 @@
                                                     </div>
                                                     <div class="detail">
                                                         <span class="spacer">:</span>
-                                                        <span>7842145879632</span>
+                                                        <span>{{astrologerData?.personalDetails?.bankAccDetails?.bankAccNumber}}</span>
                                                     </div>
                                                 </li>
                                                 <li>
@@ -107,7 +138,7 @@
                                                     </div>
                                                     <div class="detail">
                                                         <span class="spacer">:</span>
-                                                        <span>Savings</span>
+                                                        <span>{{astrologerData?.personalDetails?.bankAccDetails?.accountType}}</span>
                                                     </div>
                                                 </li>
                                                 <li>
@@ -116,7 +147,7 @@
                                                     </div>
                                                     <div class="detail">
                                                         <span class="spacer">:</span>
-                                                        <span>ICIC0000012</span>
+                                                        <span>{{astrologerData?.personalDetails?.bankAccDetails?.ifsc}}</span>
                                                     </div>
                                                 </li>
                                                 <li>
@@ -125,7 +156,7 @@
                                                     </div>
                                                     <div class="detail">
                                                         <span class="spacer">:</span>
-                                                        <span>Amit Verma</span>
+                                                        <span>{{astrologerData?.personalDetails?.bankAccDetails?.accHolderName}}</span>
                                                     </div>
                                                 </li>
                                                 <li>
@@ -134,7 +165,7 @@
                                                     </div>
                                                     <div class="detail">
                                                         <span class="spacer">:</span>
-                                                        <span>ASKPV7894G</span>
+                                                        <span>{{astrologerData?.personalDetails?.panNumber}}</span>
                                                     </div>
                                                 </li>
                                                 <li>
@@ -143,7 +174,7 @@
                                                     </div>
                                                     <div class="detail">
                                                         <span class="spacer">:</span>
-                                                        <span>789445644785</span>
+                                                        <span>{{astrologerData?.personalDetails?.adharCardNumber}}</span>
                                                     </div>
                                                 </li>
                                             </ul>

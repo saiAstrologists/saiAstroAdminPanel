@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AstrologerComponent } from './astrologer.component';
 import { AstrologerProfileComponent } from './astrologer-profile/astrologer-profile.component';
+import { AstroFeaturesComponent } from './astro-features/astro-features.component';
 
 const routes: Routes = [
   {
@@ -9,8 +10,12 @@ const routes: Routes = [
     component: AstrologerComponent
   },
   {
-    path: 'astro-profile',
+    path: 'astro-profile/:id',
     component: AstrologerProfileComponent
+  },
+  {
+    path: 'astro-features',
+    component: AstroFeaturesComponent
   }
 ];
 
