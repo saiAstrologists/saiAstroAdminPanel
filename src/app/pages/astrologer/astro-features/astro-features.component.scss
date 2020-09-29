@@ -43,5 +43,20 @@
         padding: 2rem;
         margin: 0;
         border-bottom: 1px solid #aeaeae;
+        h3 {
+            margin: 0 0 3rem;
+            mat-icon {
+                width: 35px;
+                height: 35px;
+                margin-right: 15px;
+                border-radius: 100%;
+                background-color: $primary;
+                line-height: 35px;
+                vertical-align: middle;
+                text-align: center;
+                display: inline-block;
+                font-size: 18px;
+            }
+        }
     }
 }

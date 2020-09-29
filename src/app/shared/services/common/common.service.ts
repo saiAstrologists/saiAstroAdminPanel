@@ -8,6 +8,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class CommonService {
   isUserLogin = new BehaviorSubject<boolean>(false);
   checkUserLoginStatus= this.isUserLogin.asObservable();
+  private _astrologerData:any;
   constructor(
     private toaster: MatSnackBar
   ) { }
@@ -25,6 +26,14 @@ export class CommonService {
     })
   }
   // toaster end
+
+
+  get astrologerData(){
+    return this._astrologerData;
+  }
+  set astrologerData(value){
+    this._astrologerData = value;
+  }
 
   
 }

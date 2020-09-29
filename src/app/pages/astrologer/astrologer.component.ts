@@ -6,6 +6,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { ConfirmationModalComponent } from './confirmation-modal/confirmation-modal.component';
 import { AstrologerService } from './astrologer.service';
 import { JsonPipe } from '@angular/common';
+import { CommonService } from '../../shared/services/common/common.service';
 
 export interface PeriodicElement {
   name: string;
@@ -40,7 +41,8 @@ export class AstrologerComponent implements OnInit {
   constructor(
     private router : Router,
     private dialog: MatDialog,
-    private astrologerService: AstrologerService
+    private astrologerService: AstrologerService,
+    private commonService: CommonService
   ) { }
 
   ngOnInit(): void {
@@ -112,6 +114,11 @@ export class AstrologerComponent implements OnInit {
     this.router.navigate(['/astrologer/astro-profile', astrologerData._id])
   }
 
+
+  viewFeatures(astrologerDetails){
+    this.commonService.astrologerData = astrologerDetails;
+    this.router.navigate(['/astrologer/astro-features']);
+  }
 
   statusChange(statusEvent, index, customerData){
     console.log(statusEvent, 'event');

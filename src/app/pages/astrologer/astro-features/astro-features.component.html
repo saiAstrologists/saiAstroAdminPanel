@@ -8,7 +8,7 @@
                 <form [formGroup]="featuresForm">
                     <!-- calls group -->
                     <div class="rating-section">
-                        <h3>Calls</h3>
+                        <h3> <mat-icon>call</mat-icon> Calls</h3>
                         <div  formGroupName="callRates" class="row">
                             <div class="col-4">
                                 <div class="feature-holder">
@@ -17,7 +17,7 @@
                                     </div>
                                     <mat-form-field appearance="legacy">
                                         <mat-label>India Call Rates</mat-label>
-                                        <input matInput type="text" formControlName="callIndia">
+                                        <input matInput type="text" formControlName="callIndia" [disabled]="isDisabled">
                                       </mat-form-field>
                                 </div>
                             </div>
@@ -48,7 +48,7 @@
                     
                     <!-- chat group -->
                    <div class="rating-section">
-                       <h3>Chat</h3>
+                       <h3> <span class="icon-holder"><mat-icon>chat_bubble</mat-icon></span>Chat</h3>
                        <div  formGroupName="chatRates" class="row">
                         <div class="col-4">
                             <div class="feature-holder">
@@ -87,7 +87,7 @@
                    </div>
                     <!-- Report rates -->
                     <div class="rating-section">
-                        <h3>Reports</h3>
+                        <h3> <mat-icon>comment</mat-icon> Reports</h3>
                         <div  formGroupName="reportRates" class="row">
                             <div class="col-4">
                                 <div class="feature-holder">
@@ -126,7 +126,7 @@
                     </div>
                     <!-- question answer rates -->
                     <div class="rating-section">
-                        <h3>Question & Answers</h3>
+                        <h3> <mat-icon>forum</mat-icon>  Question & Answers</h3>
                         <div  formGroupName="qaRates" class="row">
                             <div class="col-4">
                                 <div class="feature-holder">
@@ -162,7 +162,13 @@
                                 </div>
                             </div>
                         </div>
-                    </div>                    
+                    </div>  
+                    
+                    <div class="clearfix p-4">
+                        <div class="float-right">
+                            <button mat-raised-button color="accent" type="submit" (click)="savePrices(featuresForm)" [disbaled]="featuresForm.invalid">Save</button>
+                        </div>
+                    </div>
                 </form>
                 
             </div>

@@ -24,4 +24,10 @@ export class AstrologerService {
   acceptRejectApp(data): Observable<any> {
     return this.restService.create(ResturlService.appectRejectAppltn, data);
   }
+
+  saveAstrologerPrices(data): Observable<any>{
+    return this.restService.create(ResturlService.updatePrices, data);
+  }
+
+  
 }

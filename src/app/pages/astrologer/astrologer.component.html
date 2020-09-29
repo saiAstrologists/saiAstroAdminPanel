@@ -71,7 +71,8 @@
                <ng-container matColumnDef="action">
                 <th mat-header-cell *matHeaderCellDef> Action </th>
                 <td mat-cell *matCellDef="let element; let row" data-label="Action">
-                  <button mat-raised-button color="accent" (click)="viewProfile(row)">View Profile</button>
+                  <button mat-raised-button color="accent" class="mr-4" (click)="viewProfile(row)">View Profile</button>
+                  <button mat-raised-button color="accent" (click)="viewFeatures(row)">Features</button>
                 </td>
                </ng-container>
           

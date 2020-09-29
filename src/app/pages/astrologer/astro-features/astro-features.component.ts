@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
+import { AstrologerService } from '../astrologer.service';
+import { CommonService } from '../../../shared/services/common/common.service';
 
 @Component({
   selector: 'app-astro-features',
@@ -7,49 +9,106 @@ import { FormGroup, FormControl } from '@angular/forms';
   styleUrls: ['./astro-features.component.scss']
 })
 export class AstroFeaturesComponent implements OnInit {
-
+  
+  astrologerDetails: any;
+  isDisabled: boolean = true;
   featuresForm: FormGroup;
-  constructor() {
+  constructor(public astrologerService: AstrologerService, public commonService: CommonService) {
     this.featuresForm = new FormGroup({
       callRates: new FormGroup({
         callIndia: new FormControl(''),
-        callIndiaStatus: new FormControl(''),
+        callIndiaStatus: new FormControl(true),
         callUsa: new FormControl(''),
-        callUsaStatus: new FormControl(''),
+        callUsaStatus: new FormControl(true),
         callTaiwan: new FormControl(''),
-        callTaiwanStatus: new FormControl(''),
+        callTaiwanStatus: new FormControl(true),
       }),
       chatRates: new FormGroup({
         chatIndia: new FormControl(''),
-        chatIndiaStatus: new FormControl(''),
+        chatIndiaStatus: new FormControl(true),
         chatUsa: new FormControl(''),
-        chatUsaStatus: new FormControl(''),
+        chatUsaStatus: new FormControl(true),
         chatTaiwan: new FormControl(''),
-        chatTaiwanStatus: new FormControl(''),
+        chatTaiwanStatus: new FormControl(true),
       }),
       reportRates: new FormGroup({
         reportIndia: new FormControl(''),
-        reportIndiaStatus: new FormControl(''),
+        reportIndiaStatus: new FormControl(true),
         reportUsa: new FormControl(''),
-        reportUsaStatus: new FormControl(''),
+        reportUsaStatus: new FormControl(true),
         reportTaiwan: new FormControl(''),
-        reportTaiwanStatus: new FormControl(''),
+        reportTaiwanStatus: new FormControl(true),
       }),
       qaRates: new FormGroup({
         qaIndia: new FormControl(''),
-        qaIndiaStatus: new FormControl(''),
+        qaIndiaStatus: new FormControl(true),
         qaUsa: new FormControl(''),
-        qaUsaStatus: new FormControl(''),
+        qaUsaStatus: new FormControl(true),
         qaTaiwan: new FormControl(''),
-        qaTaiwanStatus: new FormControl(''),
+        qaTaiwanStatus: new FormControl(true),
       }),
 
     })
   }
 
   ngOnInit(): void {
-    console.log(this.featuresForm, 'form');
+    this.astrologerDetails = this.commonService.astrologerData;
+    console.log(this.featuresForm, 'form', this.astrologerDetails);
     
+  }
+
+  savePrices(formData){
+    if(formData && formData.valid){
+      let userData = JSON.parse(sessionStorage.getItem('user_role'));
+      let reqObj = {
+        adminId: userData ? userData._id : '',
+        astrologerId: this.astrologerDetails ? this.astrologerDetails._id : '',
+        rates: [
+          {
+            "india":{
+            "call": formData.value.callRates.callIndia,
+            "chat": formData.value.chatRates.chatIndia,
+            "report": formData.value.reportRates.reportIndia,
+            "qa": formData.value.qaRates.qaIndia,
+            "enableCall":formData.value.callRates.callIndiaStatus,
+            "enableChat":formData.value.chatRates.chatIndiaStatus,
+            "enableQa":formData.value.qaRates.qaIndiaStatus,
+            "enableReport":formData.value.reportRates.reportIndiaStatus
+          }
+         },
+         {
+         "us":{
+          "call": formData.value.callRates.callUsa,
+            "chat": formData.value.chatRates.chatUsa,
+            "report": formData.value.reportRates.reportUsa,
+            "qa": formData.value.qaRates.qaUsa,
+            "enableCall":formData.value.callRates.callUsaStatus,
+            "enableChat":formData.value.chatRates.chatUsaStatus,
+            "enableQa":formData.value.qaRates.qaUsaStatus,
+            "enableReport":formData.value.reportRates.reportUsaStatus
+          }
+         },
+         {
+         "taiwan":{
+          "call": formData.value.callRates.callTaiwan,
+          "chat": formData.value.chatRates.chatTaiwan,
+          "report": formData.value.reportRates.reportTaiwan,
+          "qa": formData.value.qaRates.qaTaiwan,
+          "enableCall":formData.value.callRates.callTaiwanStatus,
+          "enableChat":formData.value.chatRates.chatTaiwanStatus,
+          "enableQa":formData.value.qaRates.qaTaiwanStatus,
+          "enableReport":formData.value.reportRates.reportTaiwanStatus,
+         }
+         }
+        ]
+  
+      }
+      this.astrologerService.saveAstrologerPrices(reqObj).subscribe(response => {
+        console.log(response, 'response');
+        
+      })
+    }
+
   }
 
 }
