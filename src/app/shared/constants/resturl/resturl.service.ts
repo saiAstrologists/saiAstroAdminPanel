@@ -16,7 +16,7 @@ export class ResturlService {
   public static get astrologerList(): string {return '/listOfAstrologers'; }
   public static get astrologerDetail(): string {return '/getastrologerdetails'; }
   public static get appectRejectAppltn(): string {return '/acceptApplication'; }
-  public static get updatePrices(): string {return '/updatePrices'; }
+  public static get updatePrices(): string {return '/updatePrices'; } 
 
   // admin
   public static get createAdmin(): string { return '/create'; }

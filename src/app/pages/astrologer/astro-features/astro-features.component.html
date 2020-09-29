@@ -13,7 +13,8 @@
                             <div class="col-4">
                                 <div class="feature-holder">
                                     <div class="checkbox-holder">
-                                        <mat-checkbox class="" formControlName="callIndiaStatus">{{featuresForm.controls.callRates.get('callIndiaStatus').value ? 'Enabled': 'Disabled'}}</mat-checkbox>
+                                        <!-- {{featuresForm.controls.callRates.get('callIndiaStatus').value ? 'Enabled': 'Disabled'}} -->
+                                        <mat-checkbox class="" formControlName="callIndiaStatus">Enable</mat-checkbox>
                                     </div>
                                     <mat-form-field appearance="legacy">
                                         <mat-label>India Call Rates</mat-label>
@@ -166,7 +167,7 @@
                     
                     <div class="clearfix p-4">
                         <div class="float-right">
-                            <button mat-raised-button color="accent" type="submit" (click)="savePrices(featuresForm)" [disbaled]="featuresForm.invalid">Save</button>
+                            <button mat-raised-button color="accent" type="submit" (click)="savePrices(featuresForm)" [disabled]="featuresForm.invalid">Save</button>
                         </div>
                     </div>
                 </form>
