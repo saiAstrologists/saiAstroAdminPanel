@@ -8,10 +8,11 @@ import { AstrologerProfileComponent } from './astrologer-profile/astrologer-prof
 import { ConfirmationModalComponent } from './confirmation-modal/confirmation-modal.component';
 import { DocumentSliderComponent } from './document-slider/document-slider.component';
 import { AstroFeaturesComponent } from './astro-features/astro-features.component';
+import { AstrologerReportViewComponent } from './astrologer-report-view/astrologer-report-view.component';
 
 
 @NgModule({
-  declarations: [AstrologerComponent, AstrologerProfileComponent, ConfirmationModalComponent, DocumentSliderComponent, AstroFeaturesComponent],
+  declarations: [AstrologerComponent, AstrologerProfileComponent, ConfirmationModalComponent, DocumentSliderComponent, AstroFeaturesComponent, AstrologerReportViewComponent],
   imports: [
     CommonModule,
     SharedModuleModule,

@@ -5,7 +5,6 @@ import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { ConfirmationModalComponent } from './confirmation-modal/confirmation-modal.component';
 import { AstrologerService } from './astrologer.service';
-import { JsonPipe } from '@angular/common';
 import { CommonService } from '../../shared/services/common/common.service';
 
 export interface PeriodicElement {

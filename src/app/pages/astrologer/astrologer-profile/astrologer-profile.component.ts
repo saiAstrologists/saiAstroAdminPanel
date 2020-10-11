@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { AstrologerService } from '../astrologer.service';
 import { MatDialog } from '@angular/material/dialog';
 import { DocumentSliderComponent } from '../document-slider/document-slider.component';
+import { AstrologerReportViewComponent } from '../astrologer-report-view/astrologer-report-view.component';
 
 @Component({
   selector: 'app-astrologer-profile',
@@ -11,6 +12,7 @@ import { DocumentSliderComponent } from '../document-slider/document-slider.comp
 })
 export class AstrologerProfileComponent implements OnInit {
   astrologerData: any;
+  reportList: any = [];
   
 
   constructor(
@@ -28,7 +30,22 @@ export class AstrologerProfileComponent implements OnInit {
         this.getAstrologerProfileDetail(paramList.id);
       }
       
-    })
+    });
+
+
+
+    this.reportList = [
+      {
+        reportQts: 'lorem ipsum testing text qts',
+        reportAns: 'just check details testing again',
+        qtsDate: '11/10/2020',
+      },
+      {
+        reportQts: 'lorem ipsum testing text qts',
+        reportAns: 'just check details testing again',
+        qtsDate: '11/10/2020',
+      }
+    ]
     
   }
 
@@ -41,11 +58,11 @@ export class AstrologerProfileComponent implements OnInit {
           let setDobValue = new Date(this.astrologerData.personalDetails.dob);
           this.astrologerData.personalDetails.dob = setDobValue.getDate() +'/'+(setDobValue.getMonth() + 1)+'/'+setDobValue.getFullYear();
 
-          // create document list
+          // // create document list
           this.astrologerData.personalDetails['documents'] = [];
           this.astrologerData.personalDetails['documents'].push(this.astrologerData.personalDetails.idProof);
-          this.astrologerData.personalDetails['documents'].push('https://astrofiledata.s3.ap-south-1.amazonaws.com/Screenshot%20%281%29.png');
-          console.log(this.astrologerData.personalDetails, 'docm');
+          // this.astrologerData.personalDetails['documents'].push('https://astrofiledata.s3.ap-south-1.amazonaws.com/Screenshot%20%281%29.png');
+          // console.log(this.astrologerData.personalDetails, 'docm');
         }
       }
     })
@@ -62,6 +79,19 @@ export class AstrologerProfileComponent implements OnInit {
     });
     dialogRef.afterClosed().subscribe(modalRes => {
       console.log(modalRes, 'modal res');
+    })
+  }
+
+  reportInfoView(reportData){
+    const dialog = this.dialog.open(AstrologerReportViewComponent, {
+      width: '45vw',
+      panelClass: 'report-main-view',
+      data: reportData
+    });
+
+    dialog.afterClosed().subscribe(modelResponse => {
+      console.log(modelResponse, 'response');
+      
     })
   }
 

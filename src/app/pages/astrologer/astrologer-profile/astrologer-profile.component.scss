@@ -50,6 +50,8 @@
         border-bottom: 1px solid #c6c6c6;
         .profile-img-holder {
             background-color: $bg-grey;
+            background-image: url('/assets/imgs/default-user.jpg');
+            background-size: 100%;
             width: 180px;
             height: 180px;
             border-radius: 100%;
@@ -152,6 +154,32 @@
     .document-list {
         width: 200px; 
         margin-right: 20px;
+    }
+}
+
+.report-listing {
+    padding-bottom: 20px;
+    border-bottom: 1px solid #c8c8c8;
+    margin-bottom: 25px;
+    &:last-child {
+        border-bottom: none;
+    }
+    .qts-no, .qts {
+        margin-right: 10px;
+        display: inline-block;
+    }
+    .answer-section {
+        margin: 15px 10px 10px 20px;
+    }
+    .view-more {
+        text-align: right;
+        span {
+            font-weight: 700;
+            cursor: pointer;
+            &:hover {
+                color: $primary;
+            }
+        }
     }
 }
 

@@ -179,23 +179,31 @@
                                                 </li>
                                             </ul>
                                          </div>
-                                     </div>
-                                     <!-- short bio -->
-                                     <!-- <div class="sub-detail">
-                                        <div class="short-bio">
-                                            <h4 class="other-title">Short Bio</h4>
-                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam maiores accusantium possimus! Odio possimus tempore expedita iusto. Iure officiis earum quisquam tenetur. Sunt odit modi molestias soluta minus voluptates odio!
+                                     </div>     
+                                </div>
+                            </mat-tab>
+                            <!-- Reports document -->
+                            <mat-tab label="Reports">
+                                <div class="reports-wrapper">
+                                   <div class="report-listing" *ngFor="let list of reportList; let i = index">
+                                    <div class="clearfix">
+                                        <div class="float-left">
+                                            <span class="qts-no">
+                                                {{i+1}}
+                                            </span>
+                                            <div class="qts">{{list.reportQts}}</div>
                                         </div>
-                                     </div> -->
-                                     
-                                    <!-- long bio -->
-                                     <!-- <div class="sub-detail">
-                                        <div class="long-bio">
-                                            <h4 class="other-title">Long Bio</h4>
-                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam maiores accusantium possimus! Odio possimus tempore expedita iusto. Iure officiis earum quisquam tenetur. Sunt odit modi molestias soluta minus voluptates odio! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ex fugit eum provident, quisquam incidunt, cupiditate consequuntur ducimus deserunt nihil, maxime quae quia soluta laboriosam! Provident doloremque maxime velit corporis aliquid!
-                                        </div>    
-                                     </div>                                    -->
-                                                                 
+                                        <div class="float-right">
+                                            <span class="qts-date">{{list.qtsDate}}</span>
+                                        </div>
+                                    </div>
+                                    <div class="answer-section">
+                                        <p>{{list.reportAns}}</p>
+                                    </div>
+                                    <div class="view-more">
+                                        <span (click)="reportInfoView(list)">View More</span>
+                                    </div>
+                                   </div>
                                 </div>
                             </mat-tab>
                         </mat-tab-group>
