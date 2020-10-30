@@ -8,8 +8,8 @@
                 <div class="col-xl-5 col-lg-5 col-md-12 mb-4">
                     <div class="profile-wrapper">
                        <div class="profile-heading">
-                            <div class="profile-img-holder">
-                                <img src="{{astrologerData?.personalDetails?.profilePic}}" alt="" class="img-fluid">
+                            <div class="profile-img-holder" [ngStyle]="{'background-image': 'url('+ ((astrologerData?.personalDetails?.profilePic) ? (astrologerData?.personalDetails?.profilePic): '/assets/imgs/default-user.jpg') + ')'}">
+                                <!-- <img src="{{astrologerData?.personalDetails?.profilePic}}" alt="" class="img-fluid"> -->
                             </div>
                             <h3 class="heading-name">{{astrologerData?.name}}<mat-icon class="ml-2" *ngIf="astrologerData?.isApplicationAccepted">verified</mat-icon></h3>
                        </div>
@@ -191,14 +191,14 @@
                                             <span class="qts-no">
                                                 {{i+1}}
                                             </span>
-                                            <div class="qts">{{list.reportQts}}</div>
+                                            <div class="qts">{{list?.reportSubType}}</div>
                                         </div>
                                         <div class="float-right">
-                                            <span class="qts-date">{{list.qtsDate}}</span>
+                                            <!-- <span class="qts-date">{{list?.response}}</span> -->
                                         </div>
                                     </div>
                                     <div class="answer-section">
-                                        <p>{{list.reportAns}}</p>
+                                        <p>{{list?.response}}</p>
                                     </div>
                                     <div class="view-more">
                                         <span (click)="reportInfoView(list)">View More</span>

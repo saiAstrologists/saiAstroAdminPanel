@@ -13,6 +13,7 @@ import { AstrologerReportViewComponent } from '../astrologer-report-view/astrolo
 export class AstrologerProfileComponent implements OnInit {
   astrologerData: any;
   reportList: any = [];
+  reportTabActive: boolean = false;
   
 
   constructor(
@@ -28,6 +29,7 @@ export class AstrologerProfileComponent implements OnInit {
       console.log(paramList, 'parameter');
       if(paramList && paramList.id){
         this.getAstrologerProfileDetail(paramList.id);
+        this.getReportData(paramList.id);
       }
       
     });
@@ -94,5 +96,18 @@ export class AstrologerProfileComponent implements OnInit {
       
     })
   }
+
+  getReportData(astrolId){
+    let reqObj = {
+      astrologerId: astrolId
+    }
+    this.astrologerService.getReportList(reqObj).subscribe(response => {
+      console.log(response, 'report list');
+      if(response){
+        this.reportList = response.data;
+      }
+    })
+  }
+
 
 }

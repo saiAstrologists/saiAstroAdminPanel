@@ -29,5 +29,9 @@ export class AstrologerService {
     return this.restService.create(ResturlService.updatePrices, data);
   }
 
+  getReportList(data): Observable<any> {
+    return this.restService.create(ResturlService.reportsList, data);
+  }
+
   
 }

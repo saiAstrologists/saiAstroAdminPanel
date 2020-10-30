@@ -34,6 +34,7 @@ export class HeaderComponent implements OnInit {
   viewMenuBar: boolean = false;
   isUserLogin: boolean = false;
   isMasterAdmin: boolean = false;
+  userProfileData: any;
   constructor(
     private authService: AuthService,
     private commonService: CommonService,
@@ -44,7 +45,7 @@ export class HeaderComponent implements OnInit {
 
     this.isUserLogin = this.authService.isUserAuthenticate();
 
-    this.isUserLogin = true;
+    // this.isUserLogin = true;
 
 
     this.commonService.checkUserLoginStatus.subscribe(data => {
@@ -54,6 +55,10 @@ export class HeaderComponent implements OnInit {
         this.isMasterAdmin = true;
       }else {
         this.isMasterAdmin = false;
+      }
+
+      if(sessionStorage.getItem('user_role')){
+        this.userProfileData = JSON.parse(sessionStorage.getItem('user_role')) ;
       }
 
     })

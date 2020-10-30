@@ -50,8 +50,10 @@
         border-bottom: 1px solid #c6c6c6;
         .profile-img-holder {
             background-color: $bg-grey;
-            background-image: url('/assets/imgs/default-user.jpg');
-            background-size: 100%;
+            // background-image: url('/assets/imgs/default-user.jpg');
+            background-size: cover;
+            background-position: 50% 50%;
+            background-repeat: no-repeat;
             width: 180px;
             height: 180px;
             border-radius: 100%;
@@ -94,8 +96,27 @@
         box-shadow: 1px 1px 2px #d7d7d7;
         min-height: 540px;
         background-color: $color-white;
-        ::ng-deep .mat-tab-body-wrapper {
+        // ::ng-deep .mat-tab-body-wrapper {
+        //     padding: 1rem 2rem;
+        // }
+        ::ng-deep .mat-tab-body {
             padding: 1rem 2rem;
+            &:last-child {
+                max-height: 525px;
+                padding: 1rem 1rem 1rem 2rem;
+                .mat-tab-body-content::-webkit-scrollbar {
+                    width: 6px;
+                  }
+                   
+                .mat-tab-body-content::-webkit-scrollbar-track {
+                    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+                }
+                
+                .mat-tab-body-content::-webkit-scrollbar-thumb {
+                    background-color: darkgrey;
+                    outline: 1px solid slategrey;
+                }
+            }
         }
         ::ng-deep .mat-tab-label {
             opacity: 1;
@@ -108,6 +129,10 @@
 
         ::ng-deep .mat-tab-group.mat-primary .mat-ink-bar, .mat-tab-nav-bar.mat-primary .mat-ink-bar {
             background-color: $color-black;
+        }
+
+        .reports-wrapper {
+            padding-right: 1rem;
         }
 
         
