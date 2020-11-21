@@ -55,7 +55,7 @@ export class AstroFeaturesComponent implements OnInit {
     this.astrologerDetails = this.commonService.astrologerData;
     console.log(this.featuresForm, 'form', this.astrologerDetails);
 
-    if(this.astrologerDetails){
+    if(this.astrologerDetails && this.astrologerDetails.india && this.astrologerDetails.us && this.astrologerDetails.taiwan){
       this.featuresForm.patchValue({
         callRates: {
           callIndia: this.astrologerDetails.india.call,
