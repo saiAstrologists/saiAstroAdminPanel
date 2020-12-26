@@ -19,4 +19,16 @@ export class RestService {
   get(reqUrl): Observable<any>{
     return this.http.get(environment.url+reqUrl);
   }
+  
+  getByParams(reqUrl, headerParam): Observable<any>{
+    return this.http.get(environment.url+reqUrl ,{params : headerParam})
+  }
+
+  delete(reqUrl, headerParam): Observable<any>{
+    return this.http.delete(environment.url+reqUrl ,{params : headerParam})
+  }
+
+  put(reqUrl, reqData): Observable<any>{
+    return this.http.put(environment.url+reqUrl , reqData)
+  }
 }
