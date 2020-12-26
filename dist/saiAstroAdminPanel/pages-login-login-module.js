@@ -337,7 +337,7 @@ class LoginComponent {
                         sessionStorage.setItem('adminType', 'subadmin');
                     }
                     this.commonService.setUserLoginStatus(true);
-                    this.router.navigate(['/dashboard']);
+                    this.router.navigate(['admin/dashboard']);
                 }
             });
         }

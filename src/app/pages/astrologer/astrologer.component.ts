@@ -35,7 +35,7 @@ export class AstrologerComponent implements OnInit {
 
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
 
-  
+
 
   constructor(
     private router : Router,
@@ -56,7 +56,7 @@ export class AstrologerComponent implements OnInit {
        id: 2,
        name: 'Reject'
      }
-      
+
     ]
 
   //   let data: any = [
@@ -110,13 +110,13 @@ export class AstrologerComponent implements OnInit {
 
   viewProfile(astrologerData){
     console.log(astrologerData, 'astrologer data');
-    this.router.navigate(['/astrologer/astro-profile', astrologerData._id])
+    this.router.navigate(['admin/astrologer/astro-profile', astrologerData._id])
   }
 
 
   viewFeatures(astrologerDetails){
     this.commonService.astrologerData = astrologerDetails;
-    this.router.navigate(['/astrologer/astro-features']);
+    this.router.navigate(['admin/astrologer/astro-features']);
   }
 
   statusChange(statusEvent, index, customerData){
@@ -166,9 +166,9 @@ export class AstrologerComponent implements OnInit {
           }
         }
 
-        
-        
-        
+
+
+
         this.dataSource.data.filter((list, i) => {
           if(index == i ){
             list.status = selectValue.value

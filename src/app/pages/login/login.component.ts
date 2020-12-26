@@ -70,7 +70,7 @@ export class LoginComponent implements OnInit {
 
   resetPswdSec(){
     this.viewResetPswdSec = !this.viewResetPswdSec;
-    
+
     // this.adminLogin.reset();
     this.adminLogin.get('username').reset();
     this.adminLogin.get('password').reset();
@@ -111,7 +111,7 @@ export class LoginComponent implements OnInit {
       }
 
       this.loginService.loginUser(data).subscribe(response => {
-        console.log(response, 'response'); 
+        console.log(response, 'response');
 
         // if(response.message != ''){
         //   this.commonService.viewToaster(response.message);
@@ -127,8 +127,8 @@ export class LoginComponent implements OnInit {
             sessionStorage.setItem('adminType', 'subadmin');
           }
           this.commonService.setUserLoginStatus(true);
-          this.router.navigate(['/dashboard']);
-        }        
+          this.router.navigate(['admin/dashboard']);
+        }
       })
 
     }
@@ -153,7 +153,7 @@ export class LoginComponent implements OnInit {
         }
       })
     }
-   
+
   }
 
 

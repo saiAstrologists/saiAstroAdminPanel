@@ -709,7 +709,7 @@ class BlogEditorComponent {
             };
             this.blogService.createBlog(reqObj).subscribe(response => {
                 console.log(response, 'blog create');
-                this.router.navigate(['/blog']);
+                this.router.navigate(['admin/blog']);
             });
         }
     }
@@ -726,7 +726,7 @@ class BlogEditorComponent {
             };
             this.blogService.updateBlog(reqObj).subscribe(response => {
                 console.log(response, 'update');
-                this.router.navigate(['/blog']);
+                this.router.navigate(['admin/blog']);
             });
         }
     }
@@ -940,11 +940,11 @@ class BlogComponent {
     }
     editBlog(blogData) {
         this.blogService.setBlogData(blogData);
-        this.router.navigate(['/blog/blog-editor']);
+        this.router.navigate(['admin/blog/blog-editor']);
     }
     addBlog() {
         this.blogService.setBlogData(null);
-        this.router.navigate(['/blog/blog-editor']);
+        this.router.navigate(['admin/blog/blog-editor']);
     }
 }
 BlogComponent.ɵfac = function BlogComponent_Factory(t) { return new (t || BlogComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_blog_service__WEBPACK_IMPORTED_MODULE_3__["BlogService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_node_modules_angular_material_dialog__WEBPACK_IMPORTED_MODULE_4__["MatDialog"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_node_modules_angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"])); };

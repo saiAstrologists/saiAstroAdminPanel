@@ -1361,11 +1361,11 @@ class AstrologerComponent {
     //filter data table end
     viewProfile(astrologerData) {
         console.log(astrologerData, 'astrologer data');
-        this.router.navigate(['/astrologer/astro-profile', astrologerData._id]);
+        this.router.navigate(['admin/astrologer/astro-profile', astrologerData._id]);
     }
     viewFeatures(astrologerDetails) {
         this.commonService.astrologerData = astrologerDetails;
-        this.router.navigate(['/astrologer/astro-features']);
+        this.router.navigate(['admin/astrologer/astro-features']);
     }
     statusChange(statusEvent, index, customerData) {
         console.log(statusEvent, 'event');

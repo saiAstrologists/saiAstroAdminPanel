@@ -25,9 +25,9 @@ export class BlogComponent implements OnInit {
       this.blogService.blogList(params).subscribe(response => {
         if(response){
           this.blogList = response;
-        }        
+        }
       })
-    } 
+    }
   }
 
   deleteBlog(blogData, i){
@@ -40,21 +40,21 @@ export class BlogComponent implements OnInit {
         this.blogService.blogDelete(params).subscribe(response => {
           if(response){
             console.log(response, 'delete');
-            this.blogList.splice(i, 1);            
-          }        
+            this.blogList.splice(i, 1);
+          }
         })
       }
     })
   }
-  
+
   editBlog(blogData){
     this.blogService.setBlogData(blogData);
-    this.router.navigate(['/blog/blog-editor']);
+    this.router.navigate(['admin/blog/blog-editor']);
   }
 
   addBlog(){
     this.blogService.setBlogData(null);
-    this.router.navigate(['/blog/blog-editor']);
+    this.router.navigate(['admin/blog/blog-editor']);
   }
 
 }
