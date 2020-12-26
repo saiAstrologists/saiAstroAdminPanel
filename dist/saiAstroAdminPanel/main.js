@@ -60,6 +60,10 @@ const routes = [
         loadChildren: () => Promise.all(/*! import() | pages-astrologer-astrologer-module */[__webpack_require__.e("common"), __webpack_require__.e("pages-astrologer-astrologer-module")]).then(__webpack_require__.bind(null, /*! ./pages/astrologer/astrologer.module */ "./src/app/pages/astrologer/astrologer.module.ts")).then(page => page.AstrologerModule),
     },
     {
+        path: 'blog',
+        loadChildren: () => Promise.all(/*! import() | pages-blog-blog-module */[__webpack_require__.e("common"), __webpack_require__.e("pages-blog-blog-module")]).then(__webpack_require__.bind(null, /*! ./pages/blog/blog.module */ "./src/app/pages/blog/blog.module.ts")).then(page => page.BlogModule),
+    },
+    {
         path: '',
         redirectTo: 'dashboard',
         pathMatch: 'full',
@@ -1133,7 +1137,7 @@ __webpack_require__.r(__webpack_exports__);
 // The list of file replacements can be found in `angular.json`.
 const environment = {
     production: false,
-    url: 'http://ec2-3-21-75-140.us-east-2.compute.amazonaws.com:3000'
+    url: 'https://apisaiastroworld.com'
 };
 /*
  * For easier debugging in development mode, you can import the following file

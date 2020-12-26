@@ -64,7 +64,7 @@
 /******/
 /******/ 	// script path function
 /******/ 	function jsonpScriptSrc(chunkId) {
-/******/ 		return __webpack_require__.p + "" + ({"common":"common","pages-astrologer-astrologer-module":"pages-astrologer-astrologer-module","pages-login-login-module":"pages-login-login-module","pages-subadmin-subadmin-module":"pages-subadmin-subadmin-module","pages-dashboard-dashboard-module":"pages-dashboard-dashboard-module"}[chunkId]||chunkId) + ".js"
+/******/ 		return __webpack_require__.p + "" + ({"common":"common","pages-astrologer-astrologer-module":"pages-astrologer-astrologer-module","pages-blog-blog-module":"pages-blog-blog-module","pages-login-login-module":"pages-login-login-module","pages-subadmin-subadmin-module":"pages-subadmin-subadmin-module","pages-dashboard-dashboard-module":"pages-dashboard-dashboard-module"}[chunkId]||chunkId) + ".js"
 /******/ 	}
 /******/
 /******/ 	// The require function

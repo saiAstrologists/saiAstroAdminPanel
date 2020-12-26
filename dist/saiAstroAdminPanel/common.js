@@ -30,6 +30,11 @@ class ResturlService {
     static get adminList() { return '/listofadmin'; }
     static get updateAdmin() { return '/updateadmin'; }
     static get deleteAdminData() { return '/deleteAdmin'; }
+    // blog
+    static get createBlog() { return '/users/blog'; }
+    static get blogList() { return '/users/blog'; }
+    static get deleteBlog() { return '/users/delete/blog/post'; }
+    static get updateBlog() { return '/users/update/blog'; }
 }
 ResturlService.ɵfac = function ResturlService_Factory(t) { return new (t || ResturlService)(); };
 ResturlService.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjectable"]({ token: ResturlService, factory: ResturlService.ɵfac, providedIn: 'root' });
@@ -69,6 +74,15 @@ class RestService {
     }
     get(reqUrl) {
         return this.http.get(_environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"].url + reqUrl);
+    }
+    getByParams(reqUrl, headerParam) {
+        return this.http.get(_environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"].url + reqUrl, { params: headerParam });
+    }
+    delete(reqUrl, headerParam) {
+        return this.http.delete(_environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"].url + reqUrl, { params: headerParam });
+    }
+    put(reqUrl, reqData) {
+        return this.http.put(_environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"].url + reqUrl, reqData);
     }
 }
 RestService.ɵfac = function RestService_Factory(t) { return new (t || RestService)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"])); };
