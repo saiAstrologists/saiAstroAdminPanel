@@ -1,0 +1,36 @@
+<div class="blog-editor-wrapper">
+    <div class="container">
+        <div class="page-title">        
+            <h2 class="font-muli"><mat-icon>article</mat-icon> <span routerLink="/dashboard">Dashboard</span> / <span routerLink="/blog">Blog</span> / <span>Blog Editor</span></h2>
+        </div>
+
+        <div class="blog-editor-main">
+            <form [formGroup]="blogEditor">
+                <mat-card>
+                    <mat-form-field>
+                        <mat-label>Blog Title</mat-label>
+                        <input matInput placeholder="" type="text" formControlName="blogTitle">
+                    </mat-form-field>
+                    <editor apiKey="y184lgaf8kw6bfzldbi4z9a6yl10qci0v8b9ti2cpoqi44d1" 
+                        formControlName="blogBody"
+                        [init]="{
+                            height: 500,
+                            menubar: true,
+                            plugins: [
+                            'advlist autolink lists link image charmap print',
+                            'preview anchor searchreplace visualblocks code',
+                            'fullscreen insertdatetime media table paste',
+                            'help wordcount'
+                            ],
+                            toolbar:
+                            'undo redo | formatselect | bold italic | \
+                            alignleft aligncenter alignright alignjustify | \
+                            bullist numlist outdent indent | help'
+                        }">
+                    </editor>
+                    <button type="button" class="mt-3" mat-raised-button color="accent" [disabled]="blogEditor.invalid" (click)="(hasBlogData && hasBlogData.blogBody !='') ? updateBlog(blogEditor): submitBlog(blogEditor)">{{(hasBlogData && hasBlogData.blogBody !='') ? 'Update': 'Submit'}}</button>
+                </mat-card>
+            </form>
+        </div>
+    </div>
+</div>

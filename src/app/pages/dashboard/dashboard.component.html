@@ -39,7 +39,22 @@
                         
                     </div>
                 </div>
-                <div class="col-4"></div>
+                <div class="col-xl-4 col-lg-5 col-md-6 col-sm-6 mb-4" *ngIf="isMasterAdmin">
+                    <div class="list-wrapper" (click)="openLink('/blog')"> 
+                        <div class="clearfix">
+                            <div class="float-left">
+                                <h3>Blog                                    <!-- <span>List</span> -->
+                                </h3>
+                            </div>
+                            <div class="float-right">
+                                <div class="icon">
+                                    <mat-icon>article</mat-icon>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
             </div>
         </div>
     </div>

@@ -25,5 +25,10 @@ export class ResturlService {
   public static get updateAdmin(): string { return '/updateadmin'; }
   public static get deleteAdminData(): string { return '/deleteAdmin'; }
 
+  // blog
+  public static get createBlog(): string { return '/users/blog'; }
+  public static get blogList(): string { return '/users/blog'; }
+  public static get deleteBlog(): string { return '/users/delete/blog/post'; }
+  public static get updateBlog(): string { return '/users/update/blog'; }
   
 }
