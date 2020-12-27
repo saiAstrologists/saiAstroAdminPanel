@@ -42,13 +42,30 @@
             
         }
         .list-wrapper {
-            max-height: 250px;
-            padding: 5px 10px 10px 5px;
-            border-radius: 6px;
+            min-height: 370px;
+            max-height: 370px;
             background-color: $color-white;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: pre-wrap;
+            .heading {
+                .float-left { width: 80%; }
+                h2 {
+                    display: block;
+                    overflow: hidden;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                }
+            }
+            .blog-detail {
+                display: -webkit-box;
+                -webkit-line-clamp: 3;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+                img {
+                    max-width: 100% ;
+                    width: 100% ;
+                    height: auto;
+                    margin-bottom: 25px;
+                }
+            }
         }
     }
     .pointer {
