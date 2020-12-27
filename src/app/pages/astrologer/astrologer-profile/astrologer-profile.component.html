@@ -1,6 +1,6 @@
 <div class="astro-profile-wrapper">
     <div class="container">
-        <div class="page-title">        
+        <div class="page-title">
             <h2 class="font-muli"><mat-icon>person</mat-icon> <span routerLink="/dashboard">Dashboard</span> / <span routerLink="/astrologer">Astrologer</span>  / <span>Profile</span></h2>
         </div>
         <div class="profile-container">
@@ -8,7 +8,7 @@
                 <div class="col-xl-5 col-lg-5 col-md-12 mb-4">
                     <div class="profile-wrapper">
                        <div class="profile-heading">
-                            <div class="profile-img-holder" [ngStyle]="{'background-image': 'url('+ ((astrologerData?.personalDetails?.profilePic) ? (astrologerData?.personalDetails?.profilePic): '/assets/imgs/default-user.jpg') + ')'}">
+                            <div class="profile-img-holder" [ngStyle]="{'background-image': 'url('+ ((astrologerData?.personalDetails?.profilePic) ? (astrologerData?.personalDetails?.profilePic): '../admin/assets/imgs/default-user.jpg') + ')'}">
                                 <!-- <img src="{{astrologerData?.personalDetails?.profilePic}}" alt="" class="img-fluid"> -->
                             </div>
                             <h3 class="heading-name">{{astrologerData?.name}}<mat-icon class="ml-2" *ngIf="astrologerData?.isApplicationAccepted">verified</mat-icon></h3>
@@ -16,16 +16,16 @@
                        <div class="profile-details">
                            <!-- Email info -->
                            <div class="detail-list row" *ngIf="astrologerData?.email">
-                               <div class="col-2">                                 
+                               <div class="col-2">
                                   <mat-icon>email</mat-icon>
                                </div>
-                               <div class="col-10 p-0">                                 
+                               <div class="col-10 p-0">
                                   <span>{{astrologerData?.email}}</span>
                                </div>
                            </div>
                            <!-- Phone info -->
                            <div class="detail-list row" *ngIf="astrologerData?.contactNo">
-                               <div class="col-2">                                  
+                               <div class="col-2">
                                   <mat-icon>phone</mat-icon>
                                </div>
                                <div class="col-10 p-0">
@@ -35,7 +35,7 @@
 
                            <!-- date of birth -->
                            <div class="detail-list row" *ngIf="astrologerData?.personalDetails?.dob">
-                               <div class="col-2">                                  
+                               <div class="col-2">
                                   <mat-icon>today</mat-icon>
                                </div>
                                <div class="col-10 p-0">
@@ -45,7 +45,7 @@
 
                            <!-- location info -->
                            <div class="detail-list row" *ngIf="astrologerData?.personalDetails?.city">
-                               <div class="col-2">                                  
+                               <div class="col-2">
                                   <mat-icon>location_on</mat-icon>
                                </div>
                                <div class="col-10 p-0">
@@ -60,13 +60,13 @@
                                <div class="col-10 p-0">
                                 <div class="lang-list">
                                     <span *ngFor="let lang of astrologerData?.personalDetails?.language">
-                                        {{lang}} 
+                                        {{lang}}
                                         <!-- <span>,</span> -->
                                     </span>
                                    </div>
-                               </div>                                
+                               </div>
                            </div>
-    
+
                            <!-- skills info -->
                            <div class="detail-list row" *ngIf="astrologerData?.personalDetails?.skills.length">
                                <div class="col-2">
@@ -75,13 +75,13 @@
                                <div class="col-10 p-0">
                                     <div class="skill-list">
                                         <span *ngFor="let skill of astrologerData?.personalDetails?.skills">
-                                            {{skill}} 
+                                            {{skill}}
                                             <!-- <span>,</span> -->
                                         </span>
                                         <!-- <span>Vedic Astrology</span>, <span>Vasthu</span>, <span>Gemology</span>, <span>Prashana Astrology</span>, <span>Horary</span> -->
                                     </div>
                                </div>
-                               
+
                            </div>
                        </div>
                     </div>
@@ -179,7 +179,7 @@
                                                 </li>
                                             </ul>
                                          </div>
-                                     </div>     
+                                     </div>
                                 </div>
                             </mat-tab>
                             <!-- Reports document -->
