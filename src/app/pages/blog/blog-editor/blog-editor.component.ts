@@ -44,7 +44,7 @@ export class BlogEditorComponent implements OnInit {
 
       this.blogService.createBlog(reqObj).subscribe(response => {
         console.log(response, 'blog create');
-        this.router.navigate(['admin/blog']);
+        this.router.navigate(['blog']);
       });
     }
   }
@@ -62,7 +62,7 @@ export class BlogEditorComponent implements OnInit {
       }
       this.blogService.updateBlog(reqObj).subscribe(response => {
         console.log(response, 'update');
-        this.router.navigate(['admin/blog']);
+        this.router.navigate(['blog']);
       })
     }
 

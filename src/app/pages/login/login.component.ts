@@ -127,7 +127,7 @@ export class LoginComponent implements OnInit {
             sessionStorage.setItem('adminType', 'subadmin');
           }
           this.commonService.setUserLoginStatus(true);
-          this.router.navigate(['admin/dashboard']);
+          this.router.navigate(['dashboard']);
         }
       })
 

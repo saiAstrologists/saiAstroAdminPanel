@@ -49,12 +49,12 @@ export class BlogComponent implements OnInit {
 
   editBlog(blogData){
     this.blogService.setBlogData(blogData);
-    this.router.navigate(['admin/blog/blog-editor']);
+    this.router.navigate(['blog/blog-editor']);
   }
 
   addBlog(){
     this.blogService.setBlogData(null);
-    this.router.navigate(['admin/blog/blog-editor']);
+    this.router.navigate(['blog/blog-editor']);
   }
 
 }

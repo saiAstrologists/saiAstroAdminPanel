@@ -6,7 +6,7 @@
         <div class="dashboard-list">
             <div class="row">
                 <div class="col-xl-4 col-lg-5 col-md-6 col-sm-6 mb-4" [ngClass]="{'col-sm-8': !isMasterAdmin}">
-                    <div class="list-wrapper" (click)="openLink('admin/astrologer')">
+                    <div class="list-wrapper" (click)="openLink('astrologer')">
                         <div class="clearfix">
                             <div class="float-left">
                                 <h3>Astrologer
@@ -23,7 +23,7 @@
                     </div>
                 </div>
                 <div class="col-xl-4 col-lg-5 col-md-6 col-sm-6 mb-4" *ngIf="isMasterAdmin">
-                    <div class="list-wrapper" (click)="openLink('admin/subadmin')">
+                    <div class="list-wrapper" (click)="openLink('subadmin')">
                         <div class="clearfix">
                             <div class="float-left">
                                 <h3>Sub-Admin
@@ -40,7 +40,7 @@
                     </div>
                 </div>
                 <div class="col-xl-4 col-lg-5 col-md-6 col-sm-6 mb-4" *ngIf="isMasterAdmin">
-                    <div class="list-wrapper" (click)="openLink('admin/blog')">
+                    <div class="list-wrapper" (click)="openLink('blog')">
                         <div class="clearfix">
                             <div class="float-left">
                                 <h3>Blog                                    <!-- <span>List</span> -->

@@ -4,28 +4,28 @@ import { AuthGuardService } from './shared/services/authentication/auth-guard.se
 
 const routes: Routes = [
   {
-    path: 'admin/login',
+    path: 'login',
     loadChildren: () => import('./pages/login/login.module').then(page => page.LoginModule)
   },
   {
-    path: 'admin/subadmin',
+    path: 'subadmin',
     loadChildren: () => import('./pages/subadmin/subadmin.module').then(page => page.SubadminModule),
     canActivate: [AuthGuardService]
   },
   {
-    path: 'admin/dashboard',
+    path: 'dashboard',
     loadChildren: () => import('./pages/dashboard/dashboard.module').then(page => page.DashboardModule),
   },
   {
-    path: 'admin/astrologer',
+    path: 'astrologer',
     loadChildren: () => import('./pages/astrologer/astrologer.module').then(page => page.AstrologerModule),
   },
   {
-    path: 'admin/blog',
+    path: 'blog',
     loadChildren: () => import('./pages/blog/blog.module').then(page => page.BlogModule),
   },
   {
-    path: 'admin/',
+    path: '',
     redirectTo: 'dashboard',
     pathMatch: 'full',
   }

@@ -31,6 +31,6 @@ export class AuthService {
 
   logout(){
     sessionStorage.clear();
-    this.router.navigate(['admin/login'])
+    this.router.navigate(['login'])
   }
 }

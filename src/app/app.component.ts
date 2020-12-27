@@ -27,7 +27,7 @@ export class AppComponent {
       // this.router.navigate(['/dashboard']);
       this.commonService.setUserLoginStatus(true);
     }else {
-      this.router.navigate(['admin/login']);
+      this.router.navigate(['login']);
       this.commonService.setUserLoginStatus(false);
     }
 

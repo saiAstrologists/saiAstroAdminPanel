@@ -43,28 +43,28 @@ __webpack_require__.r(__webpack_exports__);
 
 const routes = [
     {
-        path: 'admin/login',
+        path: 'login',
         loadChildren: () => Promise.all(/*! import() | pages-login-login-module */[__webpack_require__.e("common"), __webpack_require__.e("pages-login-login-module")]).then(__webpack_require__.bind(null, /*! ./pages/login/login.module */ "./src/app/pages/login/login.module.ts")).then(page => page.LoginModule)
     },
     {
-        path: 'admin/subadmin',
+        path: 'subadmin',
         loadChildren: () => Promise.all(/*! import() | pages-subadmin-subadmin-module */[__webpack_require__.e("common"), __webpack_require__.e("pages-subadmin-subadmin-module")]).then(__webpack_require__.bind(null, /*! ./pages/subadmin/subadmin.module */ "./src/app/pages/subadmin/subadmin.module.ts")).then(page => page.SubadminModule),
         canActivate: [_shared_services_authentication_auth_guard_service__WEBPACK_IMPORTED_MODULE_2__["AuthGuardService"]]
     },
     {
-        path: 'admin/dashboard',
+        path: 'dashboard',
         loadChildren: () => __webpack_require__.e(/*! import() | pages-dashboard-dashboard-module */ "pages-dashboard-dashboard-module").then(__webpack_require__.bind(null, /*! ./pages/dashboard/dashboard.module */ "./src/app/pages/dashboard/dashboard.module.ts")).then(page => page.DashboardModule),
     },
     {
-        path: 'admin/astrologer',
+        path: 'astrologer',
         loadChildren: () => Promise.all(/*! import() | pages-astrologer-astrologer-module */[__webpack_require__.e("common"), __webpack_require__.e("pages-astrologer-astrologer-module")]).then(__webpack_require__.bind(null, /*! ./pages/astrologer/astrologer.module */ "./src/app/pages/astrologer/astrologer.module.ts")).then(page => page.AstrologerModule),
     },
     {
-        path: 'admin/blog',
+        path: 'blog',
         loadChildren: () => Promise.all(/*! import() | pages-blog-blog-module */[__webpack_require__.e("common"), __webpack_require__.e("pages-blog-blog-module")]).then(__webpack_require__.bind(null, /*! ./pages/blog/blog.module */ "./src/app/pages/blog/blog.module.ts")).then(page => page.BlogModule),
     },
     {
-        path: 'admin/',
+        path: '',
         redirectTo: 'dashboard',
         pathMatch: 'full',
     }
@@ -121,7 +121,7 @@ class AppComponent {
             this.commonService.setUserLoginStatus(true);
         }
         else {
-            this.router.navigate(['admin/login']);
+            this.router.navigate(['login']);
             this.commonService.setUserLoginStatus(false);
         }
     }
@@ -576,7 +576,7 @@ function HeaderComponent_div_2_Template(rf, ctx) { if (rf & 1) {
 function HeaderComponent_div_3_li_19_Template(rf, ctx) { if (rf & 1) {
     const _r7 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "li", 22);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function HeaderComponent_div_3_li_19_Template_li_click_0_listener() { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r7); const ctx_r6 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2); return ctx_r6.openPage("admin/subadmin"); });
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function HeaderComponent_div_3_li_19_Template_li_click_0_listener() { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r7); const ctx_r6 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2); return ctx_r6.openPage("subadmin"); });
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1, "Admin Control ");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "mat-icon");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](3, "admin_panel_settings");
@@ -603,14 +603,14 @@ function HeaderComponent_div_3_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](11, "li", 22);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function HeaderComponent_div_3_Template_li_click_11_listener() { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r9); const ctx_r10 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](); return ctx_r10.openPage("admin/dashboard"); });
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function HeaderComponent_div_3_Template_li_click_11_listener() { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r9); const ctx_r10 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](); return ctx_r10.openPage("dashboard"); });
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](12, "Dashboard ");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](13, "mat-icon");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](14, "home");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](15, "li", 22);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function HeaderComponent_div_3_Template_li_click_15_listener() { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r9); const ctx_r11 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](); return ctx_r11.openPage("admin/astrologer"); });
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function HeaderComponent_div_3_Template_li_click_15_listener() { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r9); const ctx_r11 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](); return ctx_r11.openPage("astrologer"); });
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](16, "Astrologer ");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](17, "mat-icon");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](18, "list");
@@ -893,7 +893,7 @@ class AuthService {
     }
     logout() {
         sessionStorage.clear();
-        this.router.navigate(['admin/login']);
+        this.router.navigate(['login']);
     }
 }
 AuthService.ɵfac = function AuthService_Factory(t) { return new (t || AuthService)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"])); };

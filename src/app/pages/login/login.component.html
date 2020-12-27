@@ -8,7 +8,7 @@
                 <!-- (ngSubmit)="!viewForgetPswdSec ? loginUser(adminLogin): forgotPassword(adminLogin)" -->
                 <mat-card class="pb-5">
                     <div class="logo-view mt-4 mb-5 text-center">
-                        <img src="assets/imgs/sai-logo.png" alt="" class="img-fluid" width="220px">
+                        <img src="../../../admin/assets/imgs/sai-logo.png" alt="" class="img-fluid" width="220px">
                     </div>
                     <mat-card-title class="text-center">
                         <span>{{viewForgetPswdSec ? 'Forgot Password': viewResetPswdSec ? 'Reset Password': 'Login'}}</span>
@@ -24,7 +24,7 @@
                               </mat-form-field>
                               <app-errorcontrol-message [control]="adminLogin.get('username')" [controlName]="'Username'"></app-errorcontrol-message>
                         </div>
-                        <div class="form-field-wrapper">                    
+                        <div class="form-field-wrapper">
                             <mat-form-field>
                                 <mat-label>Password</mat-label>
                                 <input matInput placeholder="" type="password" formControlName="password">
@@ -117,10 +117,10 @@
                             <button type="button" mat-raised-button color="accent" (click)="setResetPassword(adminLogin)" [disabled]="adminLogin.invalid">Reset Password</button>
                         </div>
                     </div>
-                    <!-- reset password section end -->                    
-                </mat-card>    
+                    <!-- reset password section end -->
+                </mat-card>
             </form>
-            
+
         </div>
        </div>
     </div>
