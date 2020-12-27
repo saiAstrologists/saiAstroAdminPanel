@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  url: 'http://ec2-3-21-75-140.us-east-2.compute.amazonaws.com:3000'
+  url: 'https://apisaiastroworld.com'
 };
 
 /*

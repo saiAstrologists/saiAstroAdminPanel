@@ -75,6 +75,42 @@ class AstroFeaturesComponent {
     ngOnInit() {
         this.astrologerDetails = this.commonService.astrologerData;
         console.log(this.featuresForm, 'form', this.astrologerDetails);
+        if (this.astrologerDetails && this.astrologerDetails.india && this.astrologerDetails.us && this.astrologerDetails.taiwan) {
+            this.featuresForm.patchValue({
+                callRates: {
+                    callIndia: this.astrologerDetails.india.call,
+                    callIndiaStatus: this.astrologerDetails.india.call ? true : false,
+                    callUsa: this.astrologerDetails.us.call,
+                    callUsaStatus: this.astrologerDetails.us.call ? true : false,
+                    callTaiwan: this.astrologerDetails.taiwan.call,
+                    callTaiwanStatus: this.astrologerDetails.taiwan.call ? true : false
+                },
+                chatRates: {
+                    chatIndia: this.astrologerDetails.india.chat,
+                    chatIndiaStatus: this.astrologerDetails.india.chat ? true : false,
+                    chatUsa: this.astrologerDetails.us.chat,
+                    chatUsaStatus: this.astrologerDetails.us.chat ? true : false,
+                    chatTaiwan: this.astrologerDetails.taiwan.chat,
+                    chatTaiwanStatus: this.astrologerDetails.taiwan.chat ? true : false
+                },
+                reportRates: {
+                    reportIndia: this.astrologerDetails.india.report,
+                    reportIndiaStatus: this.astrologerDetails.india.report ? true : false,
+                    reportUsa: this.astrologerDetails.us.report,
+                    reportUsaStatus: this.astrologerDetails.us.report ? true : false,
+                    reportTaiwan: this.astrologerDetails.taiwan.report,
+                    reportTaiwanStatus: this.astrologerDetails.taiwan.report ? true : false,
+                },
+                qaRates: {
+                    qaIndia: this.astrologerDetails.india.qa,
+                    qaIndiaStatus: this.astrologerDetails.india.qa ? true : false,
+                    qaUsa: this.astrologerDetails.us.qa,
+                    qaUsaStatus: this.astrologerDetails.us.qa ? true : false,
+                    qaTaiwan: this.astrologerDetails.taiwan.qa,
+                    qaTaiwanStatus: this.astrologerDetails.taiwan.qa ? true : false,
+                },
+            });
+        }
     }
     savePrices(formData) {
         if (formData && formData.valid) {
@@ -1325,11 +1361,11 @@ class AstrologerComponent {
     //filter data table end
     viewProfile(astrologerData) {
         console.log(astrologerData, 'astrologer data');
-        this.router.navigate(['/astrologer/astro-profile', astrologerData._id]);
+        this.router.navigate(['astrologer/astro-profile', astrologerData._id]);
     }
     viewFeatures(astrologerDetails) {
         this.commonService.astrologerData = astrologerDetails;
-        this.router.navigate(['/astrologer/astro-features']);
+        this.router.navigate(['astrologer/astro-features']);
     }
     statusChange(statusEvent, index, customerData) {
         console.log(statusEvent, 'event');
