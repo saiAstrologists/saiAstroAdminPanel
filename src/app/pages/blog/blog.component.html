@@ -15,7 +15,7 @@
             <!-- button adding for blog end -->
             <div class="row m-0">
                 <div class="list col-md-4" *ngFor="let list of blogList; let i = index">
-                    <div class="list-wrapper">
+                    <mat-card class="list-wrapper">
                         <div class="heading clearfix">
                             <div class="float-left">
                                 <h2 class="title">{{list.blogTitle}}</h2>
@@ -25,8 +25,8 @@
                                 <mat-icon class="pointer" (click)="deleteBlog(list, i)">delete</mat-icon>
                             </div>
                         </div>
-                        <div [innerHtml]="list.blogBody"></div>
-                    </div>
+                        <div class="blog-detail" [innerHtml]="list.blogBody"></div>
+                    </mat-card>
                 </div>
             </div>
         

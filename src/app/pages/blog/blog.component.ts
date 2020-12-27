@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { BlogService } from './blog.service';
 import { HttpParams } from '../../../../node_modules/@angular/common/http';
 import { BlogDeleteConfirmationComponent } from './blog-delete-confirmation/blog-delete-confirmation.component';
@@ -8,7 +8,8 @@ import { Router } from '../../../../node_modules/@angular/router';
 @Component({
   selector: 'app-blog',
   templateUrl: './blog.component.html',
-  styleUrls: ['./blog.component.scss']
+  styleUrls: ['./blog.component.scss'],
+  encapsulation: ViewEncapsulation.None,
 })
 export class BlogComponent implements OnInit {
   blogList = [];
