@@ -27,7 +27,7 @@
             &:hover {
                 color: $primary
             }
-            &:last-child { 
+            &:last-child {
                 cursor: auto;
              &:hover {
                  color: $color-black;
@@ -44,7 +44,7 @@
         padding: 1.5rem;
         border-radius: 6px;
         box-shadow: 1px 2px 3px #a3a3a3;
-        background: url('/assets/imgs/circle.svg') no-repeat 100% 100% $primary;
+        background: url('../../../assets/imgs/circle.svg') no-repeat 100% 100% $primary;
         cursor: pointer;
         transition: all 250ms ease-in-out;
         h3 {
@@ -65,12 +65,12 @@
         &:hover {
             transition: all 250ms ease-in-out;
             box-shadow: 1px 3px 5px #535353;
-            h3 { 
+            h3 {
                 color: $color-black;
                 transition: all 250ms ease-in-out;
             }
 
-            .mat-icon { 
+            .mat-icon {
                 color: $color-black;
                 transition: all 250ms ease-in-out;
             }

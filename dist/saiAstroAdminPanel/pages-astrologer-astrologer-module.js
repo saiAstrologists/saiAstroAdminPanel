@@ -967,7 +967,7 @@ AstrologerProfileComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["�
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     } if (rf & 2) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](19);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngStyle", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction1"](24, _c0, "url(" + ((ctx.astrologerData == null ? null : ctx.astrologerData.personalDetails == null ? null : ctx.astrologerData.personalDetails.profilePic) ? ctx.astrologerData == null ? null : ctx.astrologerData.personalDetails == null ? null : ctx.astrologerData.personalDetails.profilePic : "/assets/imgs/default-user.jpg") + ")"));
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngStyle", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction1"](24, _c0, "url(" + ((ctx.astrologerData == null ? null : ctx.astrologerData.personalDetails == null ? null : ctx.astrologerData.personalDetails.profilePic) ? ctx.astrologerData == null ? null : ctx.astrologerData.personalDetails == null ? null : ctx.astrologerData.personalDetails.profilePic : "../admin/assets/imgs/default-user.jpg") + ")"));
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx.astrologerData == null ? null : ctx.astrologerData.name);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
