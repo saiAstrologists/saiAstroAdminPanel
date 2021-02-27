@@ -28,10 +28,12 @@ interface StatusTypeDto {
 })
 export class AstrologerComponent implements OnInit {
 
-  displayedColumns: string[] = ['position', 'name', 'email','mobile', 'status', 'action'];
+  displayedColumns: string[] = ['position','priority', 'name', 'email','mobile', 'status', 'action'];
   dataSource = new MatTableDataSource<any>();
 
   statusTypeList : StatusTypeDto[];
+
+  priorityList: any = [];
 
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
 
@@ -183,7 +185,7 @@ export class AstrologerComponent implements OnInit {
 
   getAstrologersList(){
     this.astrologerService.getAstrologers().subscribe(response => {
-      if(response && response.status == 200 && response.data){
+      if(response && response.status == 200 && response.data.astroList){
           // set is dropdown value
             // response.data.forEach(list => {
             //   if(list.isApplicationAccepted == null){
@@ -194,10 +196,76 @@ export class AstrologerComponent implements OnInit {
             // })
 
             console.log(response.data, 'data');
+            // just for time
+            if(response.data.astroList.length){
+              response.data.astroList.forEach(list => {
+                list['rowDisabled'] = null;
+                // is priority given set to true then add
+                if(list.isPriorityGiven){
+                  this.priorityList.push(list);
+                }
+              })
+            }
+            // just for time end
 
-              this.dataSource =  new MatTableDataSource(response.data);
+              this.dataSource =  new MatTableDataSource(response.data.astroList);
               // this.dataSource =  new MatTableDataSource(ELEMENT_DATA);
               this.dataSource.paginator = this.paginator;
+      }
+    })
+  }
+
+  setPriority(event, itemData, index){
+   if(event && event.checked){
+     itemData.isPriorityGiven = true;
+     if(this.priorityList && this.priorityList.length < 3){
+       this.priorityList.push(itemData);
+
+       if(this.priorityList.length == 3){
+        this.dataSource.data.forEach(list => {
+          if(!list.isPriorityGiven){
+            list.rowDisabled = true;
+          }
+        });
+  
+        this.dataSource.filter = "";
+
+         //  call api if for set priority
+        this.savePriority();
+        //  call api if for set priority end
+       }
+       
+     }
+   }else {
+     itemData.isPriorityGiven = null;
+     if(this.priorityList.length){
+       let getIndex = this.priorityList.findIndex(list => list._id == itemData._id);
+       if(getIndex != -1){
+         this.priorityList.splice(getIndex, 1);
+       }
+     }
+
+     if(this.priorityList.length < 3){
+      this.dataSource.data.forEach(list => {
+        if(!list.isPriorityGiven){
+          list.rowDisabled = null;
+        }
+      });
+
+      this.dataSource.filter = ""; 
+     }
+   }
+   console.log(this.priorityList);
+  }
+
+  savePriority(){
+    let getUserIdList = this.priorityList.map(list =>  list.userId);
+    let reqData = {
+      list : getUserIdList
+    }
+    this.astrologerService.saveAstrologerPriority(reqData).subscribe(response => {
+      if(response){
+        console.log(response, 'astrologer priority save');
       }
     })
   }

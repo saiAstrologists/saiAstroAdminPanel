@@ -33,5 +33,9 @@ export class AstrologerService {
     return this.restService.create(ResturlService.reportsList, data);
   }
 
+  saveAstrologerPriority(data): Observable<any> {
+    return this.restService.create(ResturlService.astrologerPriority, data);
+  }
+
   
 }
