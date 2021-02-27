@@ -185,7 +185,7 @@ export class AstrologerComponent implements OnInit {
 
   getAstrologersList(){
     this.astrologerService.getAstrologers().subscribe(response => {
-      if(response && response.status == 200 && response.data.astroList){
+      if(response && response.status == 200){
           // set is dropdown value
             // response.data.forEach(list => {
             //   if(list.isApplicationAccepted == null){
@@ -194,15 +194,16 @@ export class AstrologerComponent implements OnInit {
             //     list.isDropdown = false;
             //   }
             // })
-
             console.log(response.data, 'data');
             // just for time
-            if(response.data.astroList.length){
+            if(response.data.astroList && response.data.astroList.length){
               response.data.astroList.forEach(list => {
-                list['rowDisabled'] = null;
                 // is priority given set to true then add
                 if(list.isPriorityGiven){
                   this.priorityList.push(list);
+                  list['rowDisabled'] = false;
+                }else {
+                  list['rowDisabled'] = true;
                 }
               })
             }
